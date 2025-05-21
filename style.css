@@ -1,0 +1,23 @@
+
+.login{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  margin-top: 200px;
+  background-color: rgba(20, 100, 100, 0.664);
+  color: rgb(255, 255, 255);
+  width: 500px;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.but{
+  border-radius: 10px;
+  background-color: rgb(16, 219, 219);
+  width: 70px;
+  height: 35px;
+  border: none;
+  outline: none;
+  margin-bottom: 10px;
+}
