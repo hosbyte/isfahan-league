@@ -2,9 +2,12 @@
 include 'db.php';
 session_start();
 
-//بررسی سسشن ها
-if(isset($_SESSION['user']))
+//?بررسی سسشن ها
+
+if(isset($_SESSION['username']))
 {
+  //?بررسی ادمین بودن کاربر
+
   if($_SESSION['role'] = 'admin')
   {
     header('location : admin.php');

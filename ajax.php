@@ -16,7 +16,7 @@ if (isset($_POST['user']) && isset($_POST['pass']))
   if (mysqli_num_rows($result) == 1)
   {
     $row = mysqli_fetch_assoc($result);
-    $_SESSION['fullname'] = $row['fullname'];
+    $_SESSION['username'] = $row['username'];
     $_SESSION['user'] = $row['user'];
   }
 }
