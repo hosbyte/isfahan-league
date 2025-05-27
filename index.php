@@ -33,15 +33,15 @@ include 'db.php';
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">ورود</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="logout.php">خروج</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
     </nav>
     
     <!-- // ? table -->
-     
+
 </body>
 </html>

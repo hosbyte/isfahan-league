@@ -1,22 +1,22 @@
 <?php
-// include 'db.php';
-// session_start();
+include 'db.php';
+session_start();
 
-// //?بررسی سسشن ها
+//?بررسی سسشن ها
 
-// if(isset($_SESSION['username']))
-// {
-//   //?بررسی ادمین بودن کاربر
+if(isset($_SESSION['username']))
+{
+  //?بررسی ادمین بودن کاربر
 
-//   if($_SESSION['role'] = 'admin')
-//   {
-//     header('location : admin.php');
-//   }
-//   else
-//   {
-//     header('location : index.php');
-//   }
-// }
+  if($_SESSION['role'] = 'admin')
+  {
+    header('location : admin.php');
+  }
+  else
+  {
+    header('location : index.php');
+  }
+}
 ?>
 
 <!DOCTYPE html>
