@@ -1,22 +1,22 @@
 <?php
-include 'db.php';
-session_start();
+// include 'db.php';
+// session_start();
 
-//?بررسی سسشن ها
+// //?بررسی سسشن ها
 
-if(isset($_SESSION['username']))
-{
-  //?بررسی ادمین بودن کاربر
+// if(isset($_SESSION['username']))
+// {
+//   //?بررسی ادمین بودن کاربر
 
-  if($_SESSION['role'] = 'admin')
-  {
-    header('location : admin.php');
-  }
-  else
-  {
-    header('location : index.php');
-  }
-}
+//   if($_SESSION['role'] = 'admin')
+//   {
+//     header('location : admin.php');
+//   }
+//   else
+//   {
+//     header('location : index.php');
+//   }
+// }
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +28,12 @@ if(isset($_SESSION['username']))
     <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
     <link href="style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>League Nama</title>
   </head>
   <body> 
     <!-- // ? navbar -->
-    <nav class="navbar navbar-expand-lg bg-success">
+    <!-- <nav class="navbar navbar-expand-lg bg-success">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,16 +56,16 @@ if(isset($_SESSION['username']))
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- // ? form -->
     <div class="login">
       <h2 style="color: aquamarine;">ورود</h2>
-      <form method="post" onsubmit="send(); return false;">
+      <form method="POST" onsubmit="send(); return false;">
         <p style="margin-bottom: 10px; color: aquamarine;">نام کاربری</p>
         <input id="user" name="user" type="text" class="user" style="margin-bottom: 10px; border-radius: 20px;">
         <p style="margin-bottom: 10px; color: aquamarine;">رمز عبور</p>
-        <input id="pass" name="pass" type="password" style="margin-bottom: 20px; border-radius: 20px;" class="pass">
+        <input id="pass" name="pass" type="text" style="margin-bottom: 20px; border-radius: 20px;" class="pass">
         <br>
         <button class="but" type="submit"> ورود </button>
         <br>
@@ -74,27 +75,24 @@ if(isset($_SESSION['username']))
     <script>
       function send()
       {
-        var user = document.getElementById('user').value;
-        var pass = document.getElementById('pass').value; 
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() 
-        {
-          if (this.readyState == 4 && this.status == 200)
+        $.ajax({
+          url : 'ajax.php',
+          method : 'POST',
+          data :{
+            user : $('#user').val(),
+            pass : $('#pass').val()
+          },
+          success : function(response)
           {
-            let response = this.responseText.trim();
-            if (response === '1') 
-            { 
-              window.location.href = "index.php";
-            } 
-            else
-            {
-              alert("Login failed: " + response);
-            }
+            response.trim() === '1'
+            ?window.location.href = 'admin.php'
+            : alert ("نام کاربری یا رمز عبور اشتباه است");
+          },
+          error : function()
+          {
+            alert ("خطای برقرار ارتباط با سرور");
           }
-        };
-        xmlhttp.open("GET", "ajax.php?user=" + encodeURIComponent(user) + "&pass=" + encodeURIComponent(pass), true);
-        xmlhttp.send(); 
+        }); 
       }
     </script>
   </body>
