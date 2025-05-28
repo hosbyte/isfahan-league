@@ -4,19 +4,25 @@ session_start();
 
 //?بررسی سسشن ها
 
-if(isset($_SESSION['username']))
+if(isset($_SESSION['user']))
 {
   //?بررسی ادمین بودن کاربر
 
-  if($_SESSION['role'] = 'admin')
+  if($_SESSION['role'] == 'admin')
   {
+    echo 'admin';
     header('location : admin.php');
   }
   else
   {
+    echo 'home';
     header('location : index.php');
   }
 }
+
+// اگر کاربر لاگین نکرده باشد، مقدار سشن را پاک می‌کنیم
+$_SESSION['fullname'] = '';
+$_SESSION['tel'] = '';
 ?>
 
 <!DOCTYPE html>

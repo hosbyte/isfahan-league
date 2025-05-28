@@ -26,6 +26,7 @@ if (isset($_POST['user']) && isset($_POST['pass']))
     $row = mysqli_fetch_assoc($result);
     $_SESSION['username'] = $row['username'];
     $_SESSION['name'] = $row['name'];
+    $_SESSION['role'] = $row['role'];
 
     echo("1"); // بررسی موفق
   }
