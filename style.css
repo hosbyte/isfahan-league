@@ -21,3 +21,25 @@
   outline: none;
   margin-bottom: 10px;
 }
+
+.footer{
+  background-color: #135e85;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.text-footer{
+  color: white; 
+  padding-top: 15px;
+}
+
+.footer-link{
+  text-decoration: none; 
+  color: white;
+}
+
+.footer-link:hover{
+  background-color: white;
+  color : black;
+}
