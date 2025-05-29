@@ -2,10 +2,10 @@
 include 'db.php';
 session_start();
 
-// ? admin checked
-if (isset($_SESSION['user']) && $_SESSION['role'] === 'admin')
+// ? admin check
+if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
 {
-    header ('location : admin.php');
+    header('Location: admin.php');
     exit();
 }
 
@@ -26,6 +26,7 @@ $sql = mysqli_query($db , $query);
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>League Nama</title>
 </head>
 <body>
@@ -39,9 +40,9 @@ $sql = mysqli_query($db , $query);
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">خانه</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">ورود</a>
                     </li>
