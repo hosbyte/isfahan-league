@@ -1,5 +1,17 @@
 <?php
 include 'db.php';
+session_start();
+
+// ? admin check
+if (isset($_SESSION['user']) && $_SESSION['role'] === 'admin')
+{
+    header('location : index.php');
+    exit();
+}
+
+// ? database conection
+$query = ("SELECT * FROM  leaguenama ORDER BY point DESC , gd DESC");
+$sql =mysqli_query($db , $query);
 
 ?>
 
@@ -16,9 +28,10 @@ include 'db.php';
 </head>
 <body>
     <!-- // ? navbar -->
-    <nav class="navbar navbar-expand-lg bg-success">
+    <!-- //FIXME:  -->
+    <nav class="navbar navbar-expand-lg" style=" background-color: #135e85">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">league nama</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,10 +41,10 @@ include 'db.php';
                         <a class="nav-link active" aria-current="page" href="index.php">خانه</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add.php">افزودن تیم</a>
+                        <a class="nav-link" href="teamedit.php">افزودن تیم</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">ورود</a>
+                        <a class="nav-link" href="register.php">ثبت نتایج</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">خروج</a>
@@ -41,5 +54,64 @@ include 'db.php';
         </div>
     </nav>
     
+    <!-- // ? table -->
+     <div style="margin-top: 50px; text-align: center;">
+        <table class="table table-primary table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ردیف</th>
+                    <th scope="col">نام تیم</th>
+                    <th scope="col">امتیاز</th>
+                    <th scope="col">بازی انجام شده</th>
+                    <th scope="col">برد</th>
+                    <th scope="col">مساوی</th>
+                    <th scope="col">باخت</th>
+                    <th scope="col">گل زده</th>
+                    <th scope="col">گل خورده</th>
+                    <th scope="col">تفاضل گل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $num = 0;
+                    while ($show = mysqli_fetch_assoc($sql))
+                    {
+                        $num++;
+                        $name = $show['name'];
+                        $point = $show['point'];
+                        $mp = $show['mp'];
+                        $win = $show['win'];
+                        $drow =$show['drow'];
+                        $lost = $show['lost'];
+                        $gf = $show['f'];
+                        $ga = $show['a'];
+                        $gd = $show['gd'];
+                        echo "
+                            <tr>
+                                <th scope=\"row\">$num</th>
+                                <td>$name</td>
+                                <td>$point</td>
+                                <td>$mp</td>
+                                <td>$win</td>
+                                <td>$drow</td>
+                                <td>$lost</td>
+                                <td>$gf</td>
+                                <td>$ga</td>
+                                <td>$gd</td>
+                            </tr>
+                        ";
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+     <div style="height: 150px;">
+
+    </div>
+    <!-- // ? footer -->
+    <footer class="footer">
+        <p class="text-footer">Macked By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
+    </footer>
 </body>
 </html>

@@ -30,6 +30,7 @@ $sql = mysqli_query($db , $query);
 </head>
 <body>
     <!-- // ? navbar -->
+    <!-- //FIXME:  -->
     <nav class="navbar navbar-expand-lg" style=" background-color: #135e85">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">league nama</a>
@@ -41,15 +42,9 @@ $sql = mysqli_query($db , $query);
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="index.php">خانه</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="add.php">افزودن تیم</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">ورود</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="logout.php">خروج</a>
-                    </li> -->
                 </ul>
             </div>
         </div>
@@ -106,6 +101,7 @@ $sql = mysqli_query($db , $query);
             </tbody>
         </table>
     </div>
+    
     <div style="height: 150px;">
 
     </div>
