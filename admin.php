@@ -10,7 +10,7 @@ if (isset($_SESSION['user']) && $_SESSION['role'] === 'admin')
 }
 
 // ? database conection
-$query = ("SELECT * FROM  leaguenama ORDER BY point DESC , gd DESC");
+$query = ("SELECT * FROM `teams` ORDER BY point DESC , gd DESC");
 $sql =mysqli_query($db , $query);
 
 ?>
@@ -107,7 +107,7 @@ $sql =mysqli_query($db , $query);
         </table>
     </div>
 
-     <div style="height: 150px;">
+    <div style="height: 150px;">
 
     </div>
     <!-- // ? footer -->

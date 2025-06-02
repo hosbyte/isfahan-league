@@ -11,7 +11,7 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
 
 
 // ? database conecttion
-$query = ("SELECT * FROM leaguenama ORDER BY point DESC , gd DESC ");
+$query = ("SELECT * FROM `teams` ORDER BY point DESC , gd DESC ");
 $sql = mysqli_query($db , $query);
 
 
