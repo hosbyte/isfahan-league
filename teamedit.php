@@ -24,6 +24,7 @@ if(isset($_GET['del']))
     $delete_query = ("DELETE FROM `teams` WHERE id = $id");
     $delete_sql =mysqli_query($db , $delete_query);
 
+    // page refresh
     header('Location: teamedit.php');
     exit();
 }
@@ -56,8 +57,7 @@ if (isset($_POST['update']))
     exit();
 }
 
-
-// TODO: delete all team
+// ? delete all team
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all'])) 
 {
     $sql = "TRUNCATE TABLE teams";
