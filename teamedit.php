@@ -80,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet">
@@ -88,170 +89,188 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>League Nama</title>
 </head>
-<body>
-    <!-- // ? add modal -->
-    <div class="modal fade" id="addmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">افزودن تیم</h1>
+    <body class="body">
+        <!-- // ? add modal -->
+        <div class="modal fade" id="addmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">افزودن تیم</h1>
+                    </div>
+                    <form action="teamedit.php" method="post">
+                        <div class="modal-body" style="text-align: center;">    
+                            <label style="color: black; margin-top: 10px;" for="nameteam">
+                            <h6>نام تیم</h6>
+                            </label>
+                            <br>
+                            <input type="text" name="name" id="nameteam" style="border-radius: 20px;">
+                            <br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">بستن</button>
+                            <button type="submit"  class="btn btn-success">ذخیره</button>
+                        </div>
+                    </form>
                 </div>
-                <form action="teamedit.php" method="post">
-                    <div class="modal-body" style="text-align: center;">    
-                        <label style="color: black; margin-top: 10px;" for="nameteam">
-                        <h6>نام تیم</h6>
-                        </label>
-                        <br>
-                        <input type="text" name="name" id="nameteam" style="border-radius: 20px;">
-                        <br>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">بستن</button>
-                        <button type="submit"  class="btn btn-success">ذخیره</button>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
 
-    <!-- // ? edit modal -->
-    <div class="modal fade <?php echo isset($_GET['edit']); ?>" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">تغییر نام تیم</h1>
+        <!-- // ? edit modal -->
+        <div class="modal fade <?php echo isset($_GET['edit']); ?>" id="editmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">تغییر نام تیم</h1>
+                    </div>
+                    <form action="teamedit.php" method="post">
+                        <div class="modal-body" style="text-align: center;"> 
+                            <input type="hidden" name="team_id" value="<?php echo $_GET['edit']; ?>">  
+                            <label style="color: black; margin-top: 10px;" for="nameteam">
+                            <h6>نام تیم</h6>
+                            </label>
+                            <br>
+                            <input type="text" value="<?php echo $name_show?>" name="team_name" id="nameteam" style="border-radius: 20px;">
+                            <br>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="teamedit.php" type="button" class="btn btn-info" data-bs-dismiss="modal">بستن</a>
+                            <button type="submit" name="update" class="btn btn-success">ذخیره</button>
+                        </div>
+                    </form>
                 </div>
-                <form action="teamedit.php" method="post">
-                    <div class="modal-body" style="text-align: center;"> 
-                        <input type="hidden" name="team_id" value="<?php echo $_GET['edit']; ?>">  
-                        <label style="color: black; margin-top: 10px;" for="nameteam">
-                        <h6>نام تیم</h6>
-                        </label>
-                        <br>
-                        <input type="text" value="<?php echo $name_show?>" name="team_name" id="nameteam" style="border-radius: 20px;">
-                        <br>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="teamedit.php" type="button" class="btn btn-secondary" data-bs-dismiss="modal">بستن</a>
-                        <button type="submit" name="update" class="btn btn-success">ذخیره</button>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
 
-    <!-- // ? navbar -->
-    <nav class="navbar navbar-expand-lg" style=" background-color: #135e85">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">league nama</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="teamedit.php">افزودن تیم</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="register.php">ثبت نتایج</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">خروج</a>
-                    </li>
-                </ul>
+        <!-- // ? navbar -->
+        <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">افزودن تیم</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
+                        </li
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.php">ثبت نتایج</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout.php">خروج</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- // ? add or delete button -->
+        <div class="row col-12 mb-3" style="text-align: center; margin: 20px;">
+            <!-- // * add button -->
+            <div class="col">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addmodal">
+                <i class="bi bi-plus-circle-fill"></i> اضافه کردن تیم
+                </button>
+            </div>
+            <!-- // * delete all team -->
+            <div class="col">
+                <button id="delete_all" type="submit" class="btn btn-danger">
+                <i class="bi bi-trash-fill"></i> حذف تمام تیم ها
+                </button>
             </div>
         </div>
-    </nav>
 
-    <!-- // ? add or delete button -->
-    <!-- // * add button -->
-    <div class="row col-12 mb-3" style="text-align: center; margin: 20px;">
-        <div class="col">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addmodal">
-                اضافه کردن تیم
-            </button>
+        <!-- // ? table for edit name  -->
+        <div class="img" style="margin-top: 50px; padding-bottom: 50px ;text-align: center;" class="container-fluid py-4 table-responsive-sm">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8">
+                     <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
+                        <table class="table table-primary table-striped">
+                                <thead style="text-align: center;">
+                                    <tr>
+                                    <th scope="col">ردیف</th>
+                                    <th scope="col">نام تیم</th>
+                                    <th scope="col">عملیات</th>
+                                    
+                                    </tr>
+                                </thead>
+                                <tbody style="text-align: center;">
+                                    <?php
+                                        $num = 0;
+                                        while($show = mysqli_fetch_assoc($table_sql))
+                                        {
+                                            $num++;
+                                            $id = $show['id'];
+                                            $name = $show['name'];
+                                            echo "
+                                                <tr>
+                                                <th scope=\"row\">$num</th>
+                                                <td>$name</td>
+                                                <td> 
+                                                <a href=\"?edit=$id\" type=\"button\" class=\"btn btn-warning\"> <i class=\"bi bi-pencil-square\"></i> تغییر نام</a> 
+                                                <a href=\"?del=$id\" type=\"button\" class=\"btn btn-danger\"> <i class=\"bi bi-trash-fill\"></i> حذف تیم</a> </td>
+                                                </tr>
+                                            ";
+                                        }
+                                    ?>
+                                </tbody>
+                        </table>
+                    </div> 
+                </div>
+            </div>                      
         </div>
-        <!-- // * delete all team -->
-        <div class="col">
-            <button id="delete_all" type="submit" class="btn btn-danger">
-                حذف تمام تیم ها
-            </button>
-        </div>
-    </div>
 
-    <!-- // ? table for edit name  -->
-    <table class="table table-primary table-striped">
-        <thead>
-            <tr>
-            <th scope="col">ردیف</th>
-            <th scope="col">نام تیم</th>
-            <th scope="col">تغییرنام / حذف</th>
-            
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-                $num = 0;
-                while($show = mysqli_fetch_assoc($table_sql))
-                {
-                    $num++;
-                    $id = $show['id'];
-                    $name = $show['name'];
-                    echo "
-                        <tr>
-                        <th scope=\"row\">$num</th>
-                        <td>$name</td>
-                        <td> 
-                        <a href=\"?edit=$id\" type=\"button\" class=\"btn btn-warning\">تغییر نام</a> 
-                        <a href=\"?del=$id\" type=\"button\" class=\"btn btn-danger\">حذف تیم</a> </td>
-                        </tr>
-                    ";
+        <!-- // ? footer -->
+        <footer class="footer ">
+            <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
+        </footer>
+        
+        <!-- // ? style for table -->
+        <style>
+            @media (max-width: 768px) {
+                .table-responsive-md td:nth-child(4),
+                .table-responsive-md td:nth-child(5),
+                .table-responsive-md td:nth-child(6) {
+                    display: none;
                 }
-            ?>
-        </tbody>
-    </table>
-
-    <div style="height: 150px;">
-    </div>
-
-    <!-- // ? footer -->
-    <footer class="footer">
-        <p class="text-footer">Macked By <a class="footer-link" href="https://hosbyte.ir"> Hosbyte </a> Programmer</p>
-    </footer> 
-    
-    <!-- // * jquery -->
-    <script>
-        <!-- // ? modal show jquery -->
-        $(document).ready(function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if(urlParams.has('edit')) {
-                const myModal = new bootstrap.Modal(document.getElementById('editmodal'));
-                myModal.show();
+                .table-responsive-md th:nth-child(4),
+                .table-responsive-md th:nth-child(5),
+                .table-responsive-md th:nth-child(6) {
+                    display: none;
+                }
             }
-        });
+        </style>
 
-        // ? delete all jquery
-        $(document).ready(function() {
-            $("#delete_all").click(function() {
-                if (confirm("آیا مطمئن هستید که می‌خواهید تمام تیم‌ها حذف شوند؟")) {
-                    $.ajax({
-                        url: 'teamedit.php',
-                        type: 'POST',
-                        data: { delete_all: true },
-                        success: function(response) {
-                            alert(response);
-                            location.reload(); // برای بروز شدن جدول بعد از حذف
-                        },
-                        error: function(xhr, status, error) {
-                            alert("خطا در حذف: " + error);
-                        }
-                    });
+        <!-- // ? jquery -->
+        <script>
+            <!-- // ? modal show jquery -->
+            $(document).ready(function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                if(urlParams.has('edit')) {
+                    const myModal = new bootstrap.Modal(document.getElementById('editmodal'));
+                    myModal.show();
                 }
             });
-        });
-    </script>
-</body>
+
+            // ? delete all jquery
+            $(document).ready(function() {
+                $("#delete_all").click(function() {
+                    if (confirm("آیا مطمئن هستید که می‌خواهید تمام تیم‌ها حذف شوند؟")) {
+                        $.ajax({
+                            url: 'teamedit.php',
+                            type: 'POST',
+                            data: { delete_all: true },
+                            success: function(response) {
+                                alert(response);
+                                location.reload(); // برای بروز شدن جدول بعد از حذف
+                            },
+                            error: function(xhr, status, error) {
+                                alert("خطا در حذف: " + error);
+                            }
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>

@@ -30,6 +30,7 @@ $_SESSION['tel'] = '';
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" type="image/png" href="img/favicon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -37,12 +38,11 @@ $_SESSION['tel'] = '';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>League Nama</title>
   </head>
-  <body> 
+  <body class="body"> 
     <!-- // ? navbar -->
-    <!-- //FIXME:  -->
-    <nav class="navbar navbar-expand-lg" style=" background-color: #135e85">
+    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
         <div class="container-fluid">
-            <p class="navbar-brand">league nama</p>
+            <p class="navbar-brand" style="color:rgb(255, 255, 255);" >ورود</p>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,19 +57,37 @@ $_SESSION['tel'] = '';
     </nav>
 
     <!-- // ? form -->
-    <div class="login">
-      <h2 style="color: aquamarine;">ورود</h2>
-      <form method="POST" onsubmit="send(); return false;">
-        <p style="margin-bottom: 10px; color: aquamarine;">نام کاربری</p>
-        <input id="user" name="user" type="text" class="user" style="margin-bottom: 10px; border-radius: 20px;">
-        <p style="margin-bottom: 10px; color: aquamarine;">رمز عبور</p>
-        <input id="pass" name="pass" type="text" style="margin-bottom: 20px; border-radius: 20px;" class="pass">
-        <br>
-        <button class="but" type="submit"> ورود </button>
-        <br>
-      </form>
+    <div class="img container-fluid py-5" style="min-height: 100vh;">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+          <div class="login p-4 p-md-5 rounded-4 shadow-lg" style="background: linear-gradient(135deg,rgb(4, 187, 238) 0%,rgb(0, 0, 0) 100%);">
+            <h2 class="text-center mb-4" style="color:rgb(247, 247, 247); font-weight: 700;">ورود</h2>
+            <form method="POST" onsubmit="send(); return false;">
+              <div class="mb-3">
+                <label for="user" class="form-label fw-bold" style="color:rgb(47, 245, 225);">نام کاربری</label>
+                <input id="user" name="user" type="text" class="form-control form-control-lg py-2" style="border-radius: 20px;">
+              </div>
+              <div class="mb-4">
+                <label for="pass" class="form-label fw-bold" style="color:rgb(47, 245, 225);">رمز عبور</label>
+                <input id="pass" name="pass" type="password" class="form-control form-control-lg py-2" style="border-radius: 20px;">
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-lg text-black fw-bold py-2" type="submit" style="border-radius: 20px; background: #00ced1;"> 
+                  ورود <i class="bi bi-box-arrow-in-right me-2"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-        
+
+    <!-- // ?footer -->
+    <footer class="footer">
+        <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
+    </footer>
+
+    <!-- // ? jquery -->
     <script>
       function send()
       {
