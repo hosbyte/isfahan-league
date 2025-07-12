@@ -1,5 +1,5 @@
 <?php
-  $db = mysqli_connect('localhost' , 'root' , '' , 'Leaguenama');
+  $db = mysqli_connect('localhost' , '' , '' , '');
 
   if (!$db)
   {
