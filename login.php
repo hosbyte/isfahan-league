@@ -6,9 +6,24 @@ session_start();
 if(isset($_SESSION['user']))
 {
   //?بررسی ادمین بودن کاربر
-  if($_SESSION['role'] == 'admin')
+  if($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin17')
   {
-    header('Location: admin.php');
+    header('Location: d2z17a.php');
+    exit();
+  }
+  elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin115')
+  {
+    header('Location: d2z15a.php');
+    exit();
+  }
+  elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin14')
+  {
+    header('Location: d2z14a.php');
+    exit();
+  }
+  elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin13')
+  {
+    header('Location: d2z13a.php');
     exit();
   }
   else
@@ -38,6 +53,7 @@ $_SESSION['tel'] = '';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>League Nama</title>
   </head>
+
   <body class="body"> 
     <!-- // ? navbar -->
     <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">

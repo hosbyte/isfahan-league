@@ -67,6 +67,14 @@
   opacity:0.90;
 }
 
-/* .img1{
-  opacity:0.95;
-} */
+.cart{
+  background: linear-gradient(135deg,#00c8ff86  0% ,#92fe9d71  100%);
+}
+
+.cart-back1{
+  background-color:rgba(255, 255, 255, 0) ;
+}
+
+.cart-back{
+  background-color:rgba(255, 255, 255, 0.356) ;
+}

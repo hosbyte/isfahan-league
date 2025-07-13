@@ -3,24 +3,9 @@ include 'db.php';
 session_start();
 
 // ? admin check
-if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin17')
+if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
 {
-    header('Location: d2z17a.php');
-    exit();
-}
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin15')
-{
-    header('LocaNIBFtion: d2z15a.php');
-    exit();
-}
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin14')
-{
-    header('Location: d2z14a.php');
-    exit();
-}
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin13')
-{
-    header('Location: d2z13a.php');
+    header('Location: admin.php');
     exit();
 }
 
@@ -63,7 +48,7 @@ $sql = mysqli_query($db , $query);
     </nav>
     
     <!-- // ? table -->
-    <!-- <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
+    <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
                 <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
@@ -118,48 +103,7 @@ $sql = mysqli_query($db , $query);
                 </div>
             </div>
         </div>
-    </div> -->
-
-    <!-- // TODO: card show -->
-    <div class="row" style="text-align: center;">
-        <!-- // ? zire  17 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
-            <div class="cart-back card">
-                <div class="cart-back cart card-body">
-                    <h5 class="card-title">زیر 17 سال</h5>
-                    <a href="d2z17.php" class="btn btn-primary">مشاهده جدول</a>
-                </div>
-            </div>
-        </div>
-        <!-- // ? zire  15 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
-            <div class="cart-back card">
-                <div class="cart-back cart card-body">
-                    <h5 class="card-title">زیر 15 سال</h5>
-                    <a href="d2z15.php" class="btn btn-primary">مشاهده جدول</a>
-                </div>
-            </div>
-        </div> 
-        <!-- // ? zire  14 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
-            <div class="cart-back card"> 
-                <div class="cart-back cart card-body">
-                    <h5 class="card-title">زیر 14 سال</h5>
-                    <a href="d2z14.php" class="btn btn-primary">مشاهده جدول</a>
-                </div>
-            </div>
-        </div> 
-        <!-- // ? zire  13 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
-            <div class="cart-back card">
-                <div class="cart-back cart card-body">
-                    <h5 class="card-title">زیر 13 سال</h5>
-                    <a href="d2z13.php" class="btn btn-primary">مشاهده جدول</a>
-                </div>
-            </div>
-        </div>
     </div>
-   
 
     <!-- // ?footer -->
     <footer class="footer">
