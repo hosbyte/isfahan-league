@@ -10,7 +10,7 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'
 }
 elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin15')
 {
-    header('LocaNIBFtion: d2z15a.php');
+    header('Location: d2z15a.php');
     exit();
 }
 elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin14')
@@ -127,6 +127,7 @@ $sql = mysqli_query($db , $query);
             <div class="cart-back card">
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 17 سال</h5>
+                    <p class="card-text">لیگ دسته دو</p>
                     <a href="d2z17.php" class="btn btn-primary">مشاهده جدول</a>
                 </div>
             </div>
@@ -136,6 +137,7 @@ $sql = mysqli_query($db , $query);
             <div class="cart-back card">
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 15 سال</h5>
+                    <p class="card-text">لیگ دسته دو</p>
                     <a href="d2z15.php" class="btn btn-primary">مشاهده جدول</a>
                 </div>
             </div>
@@ -145,6 +147,7 @@ $sql = mysqli_query($db , $query);
             <div class="cart-back card"> 
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 14 سال</h5>
+                    <p class="card-text">لیگ دسته دو</p>
                     <a href="d2z14.php" class="btn btn-primary">مشاهده جدول</a>
                 </div>
             </div>
@@ -154,6 +157,7 @@ $sql = mysqli_query($db , $query);
             <div class="cart-back card">
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 13 سال</h5>
+                    <p class="card-text">لیگ دسته دو</p>
                     <a href="d2z13.php" class="btn btn-primary">مشاهده جدول</a>
                 </div>
             </div>

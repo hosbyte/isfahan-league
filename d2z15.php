@@ -10,7 +10,7 @@ session_start();
 // }
 
 // ? database conecttion
-$query = ("SELECT * FROM `d2z17` ORDER BY point DESC , gd DESC ");
+$query = ("SELECT * FROM `d2z15` ORDER BY point DESC , gd DESC ");
 $sql = mysqli_query($db , $query);
 
 
