@@ -3,16 +3,15 @@ include 'db.php';
 session_start();
 
 // ? admin check
-// if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
-// {
-//     header('Location: admin.php');
-//     exit();
-// }
+if (isset($_SESSION['user']) && $_SESSION['role'] === 'admin')
+{
+    header('location : index.php');
+    exit();
+}
 
-// ? database conecttion
-$query = ("SELECT * FROM `d2z13` ORDER BY point DESC , gd DESC ");
-$sql = mysqli_query($db , $query);
-
+// ? database conection
+$query = ("SELECT * FROM `d2z15` ORDER BY point DESC , gd DESC");
+$sql =mysqli_query($db , $query);
 
 ?>
 
@@ -30,6 +29,7 @@ $sql = mysqli_query($db , $query);
     <title>League Nama</title>
 </head>
 <body class="body">
+    
     <!-- // ? navbar -->
     <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
         <div class="container-fluid">
@@ -37,10 +37,22 @@ $sql = mysqli_query($db , $query);
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- <div >
+                <img class="img" src="img/back.png" alt="">
+            </div> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">ورود</a>
+                        <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teamedit.php">افزودن تیم</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">ثبت نتایج</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">خروج</a>
                     </li>
                 </ul>
             </div>
@@ -105,7 +117,7 @@ $sql = mysqli_query($db , $query);
         </div>
     </div>
 
-    <!-- // ?footer -->
+    <!-- // ? footer -->
     <footer class="footer">
         <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
     </footer>
@@ -116,12 +128,12 @@ $sql = mysqli_query($db , $query);
             .table-responsive-md td:nth-child(4),
             .table-responsive-md td:nth-child(5),
             .table-responsive-md td:nth-child(6) {
-                display: none;
+            display: none;
             }
             .table-responsive-md th:nth-child(4),
             .table-responsive-md th:nth-child(5),
             .table-responsive-md th:nth-child(6) {
-                display: none;
+            display: none;
             }
         }
     </style>

@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['team_id']) && isset($_GET
     <link rel="stylesheet" href="https://hosbyte.ir/files/icon/icons-1.11.0/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
     <title>League Nama</title>
 </head>
 <body>

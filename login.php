@@ -50,7 +50,7 @@ $_SESSION['tel'] = '';
     <link rel="stylesheet" href="https://hosbyte.ir/files/icon/icons-1.11.0/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
     <title>League Nama</title>
   </head>
 
@@ -104,28 +104,56 @@ $_SESSION['tel'] = '';
     </footer>
 
     <!-- // ? jquery -->
+   
     <script>
-      function send()
+      function send() 
       {
+        const username = $('#user').val();
+        const password = $('#pass').val();
+
         $.ajax({
-          url : 'ajax.php',
-          method : 'POST',
-          data :{
-            user : $('#user').val(),
-            pass : $('#pass').val()
+          url: 'ajax.php',
+          method: 'POST',
+          data: {
+            user: username,
+            pass: password
           },
-          success : function(response)
+          success: function(response) 
           {
-            response.trim() === '1'
-            ?window.location.href = 'admin.php'
-            : alert ("نام کاربری یا رمز عبور اشتباه است");
+            response = response.trim();
+
+            if (response === '1') {
+              if (username === 'd2admin17') 
+              {
+                window.location.href = 'd2z17a.php';
+              } 
+              else if (username === 'd2admin15') 
+              {
+                window.location.href = 'd2z15a.php';
+              } 
+              else if (username === 'd2admin14') 
+              {
+                window.location.href = 'd2z14a.php';
+              } 
+              else if (username === 'd2admin13') 
+              {
+                window.location.href = 'd2z13a.php';
+              } 
+              else 
+              {
+                alert("کاربر ناشناخته");
+              }
+            } else {
+              alert("نام کاربری یا رمز عبور اشتباه است");
+            }
           },
-          error : function()
-          {
-            alert ("خطای برقرار ارتباط با سرور");
+          error: function() {
+            alert("خطای برقراری ارتباط با سرور");
           }
-        }); 
+        });
       }
     </script>
+
+
   </body>
 </html>

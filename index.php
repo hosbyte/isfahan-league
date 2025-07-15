@@ -3,22 +3,22 @@ include 'db.php';
 session_start();
 
 // ? admin check
-if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin17')
+if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin17')
 {
     header('Location: d2z17a.php');
     exit();
 }
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin15')
+elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin15')
 {
     header('Location: d2z15a.php');
     exit();
 }
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin14')
+elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin14')
 {
     header('Location: d2z14a.php');
     exit();
 }
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'admin13')
+elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin13')
 {
     header('Location: d2z13a.php');
     exit();
@@ -41,7 +41,7 @@ $sql = mysqli_query($db , $query);
     <link rel="stylesheet" href="https://hosbyte.ir/files/icon/icons-1.11.0/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
     <title>League Nama</title>
 </head>
 <body class="body">
