@@ -8,9 +8,31 @@ $query = null;
 $sql = null;
 if(isset($_POST['name']))
 {
-    $name = $_POST['name'];
-    $query = ("INSERT INTO `teams`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
-    $sql = mysqli_query($db , $query);
+    if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin17')
+    {
+        $name = $_POST['name'];
+        $query = ("INSERT INTO `d2z17`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
+        $sql = mysqli_query($db , $query);
+    }
+    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin15')
+    {
+        $name = $_POST['name'];
+        $query = ("INSERT INTO `d2z15`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
+        $sql = mysqli_query($db , $query);
+    }
+    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin14')
+    {
+        $name = $_POST['name'];
+        $query = ("INSERT INTO `d2z14`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
+        $sql = mysqli_query($db , $query);
+    }
+    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin13')
+    {
+        $name = $_POST['name'];
+        $query = ("INSERT INTO `d2z13`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
+        $sql = mysqli_query($db , $query);
+    }
+    
 
     //page refresh
     header('Location: teamedit.php');
@@ -81,12 +103,45 @@ $name_show = null;
 $show_id = null;
 if(isset($_GET['edit']))
 {
-    $show_id = intval($_GET['edit']);
-    $show_query = ("SELECT `name` FROM `teams` WHERE `id` = '$show_id'");
-    $show_sql = mysqli_query($db , $show_query);
-    while($read = mysqli_fetch_assoc($show_sql))
+    if($_SESSION['username'] === 'd2admin17')
     {
-        $name_show = $read['name'];
+        $show_id = intval($_GET['edit']);
+        $show_query = ("SELECT `name` FROM `d2z17` WHERE `id` = '$show_id'");
+        $show_sql = mysqli_query($db , $show_query);
+        while($read = mysqli_fetch_assoc($show_sql))
+        {
+            $name_show = $read['name'];
+        }
+    }
+    else if($_SESSION['username'] === 'd2admin15')
+    {
+        $show_id = intval($_GET['edit']);
+        $show_query = ("SELECT `name` FROM `d2z15` WHERE `id` = '$show_id'");
+        $show_sql = mysqli_query($db , $show_query);
+        while($read = mysqli_fetch_assoc($show_sql))
+        {
+            $name_show = $read['name'];
+        }
+    }
+    else if($_SESSION['username'] === 'd2admin14')
+    {
+        $show_id = intval($_GET['edit']);
+        $show_query = ("SELECT `name` FROM `d2z14` WHERE `id` = '$show_id'");
+        $show_sql = mysqli_query($db , $show_query);
+        while($read = mysqli_fetch_assoc($show_sql))
+        {
+            $name_show = $read['name'];
+        }
+    }
+    else if($_SESSION['username'] === 'd2admin13')
+    {
+        $show_id = intval($_GET['edit']);
+        $show_query = ("SELECT `name` FROM `d2z13` WHERE `id` = '$show_id'");
+        $show_sql = mysqli_query($db , $show_query);
+        while($read = mysqli_fetch_assoc($show_sql))
+        {
+            $name_show = $read['name'];
+        }
     }
 }
 // * update team
@@ -95,9 +150,27 @@ if (isset($_POST['update']))
     $show_id = $_POST['team_id'];
     $team_name = $_POST['team_name'];
 
-    // query
-    $update_query = ("UPDATE `teams` SET `name` = '$team_name' WHERE `id` = '$show_id'");
-    $update_sql = mysqli_query($db , $update_query);
+    // ! query
+    if($_SESSION['username'] === 'd2admin17')
+    {
+        $update_query = ("UPDATE `d2z17` SET `name` = '$team_name' WHERE `id` = '$show_id'");
+        $update_sql = mysqli_query($db , $update_query);
+    }
+    else if($_SESSION['username'] === 'd2admin15')
+    {
+        $update_query = ("UPDATE `d2z15` SET `name` = '$team_name' WHERE `id` = '$show_id'");
+        $update_sql = mysqli_query($db , $update_query);
+    }
+    else if($_SESSION['username'] === 'd2admin14')
+    {
+        $update_query = ("UPDATE `d2z14` SET `name` = '$team_name' WHERE `id` = '$show_id'");
+        $update_sql = mysqli_query($db , $update_query);
+    }
+    else if($_SESSION['username'] === 'd2admin13')
+    {
+        $update_query = ("UPDATE `d2z13` SET `name` = '$team_name' WHERE `id` = '$show_id'");
+        $update_sql = mysqli_query($db , $update_query);
+    }
 
     // page refresh for update
     header('Location: teamedit.php');
@@ -105,17 +178,60 @@ if (isset($_POST['update']))
 }
 
 // ? delete all team
+$delete_all = null;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all'])) 
 {
-    $sql = "TRUNCATE TABLE teams";
-    if (mysqli_query($db, $sql)) 
+    if($_SESSION['username'] === 'd2admin17')
     {
-        echo "تمام تیم‌ها حذف شدند.";
-    } 
-    else 
+        $delete_all = "TRUNCATE TABLE d2z17";
+        if (mysqli_query($db, $delete_all)) 
+        {
+            echo "تمام تیم‌ها حذف شدند.";
+        } 
+        else 
+        {
+            http_response_code(500);
+            echo "خطا در حذف: " . mysqli_error($db);
+        }
+    }
+    else if($_SESSION['username'] === 'd2admin15')
     {
-        http_response_code(500);
-        echo "خطا در حذف: " . mysqli_error($db);
+        $delete_all = "TRUNCATE TABLE d2z15";
+        if (mysqli_query($db, $delete_all)) 
+        {
+            echo "تمام تیم‌ها حذف شدند.";
+        } 
+        else 
+        {
+            http_response_code(500);
+            echo "خطا در حذف: " . mysqli_error($db);
+        }
+    }
+    else if($_SESSION['username'] === 'd2admin14')
+    {
+        $delete_all = "TRUNCATE TABLE d2z14";
+        if (mysqli_query($db, $delete_all)) 
+        {
+            echo "تمام تیم‌ها حذف شدند.";
+        } 
+        else 
+        {
+            http_response_code(500);
+            echo "خطا در حذف: " . mysqli_error($db);
+        }
+    }
+    else if($_SESSION['username'] === 'd2admin13')
+    {
+        $delete_all = "TRUNCATE TABLE d2z13";
+        if (mysqli_query($db, $delete_all)) 
+        {
+            echo "تمام تیم‌ها حذف شدند.";
+        } 
+        else 
+        {
+            http_response_code(500);
+            echo "خطا در حذف: " . mysqli_error($db);
+        }
     }
     exit();
 }
