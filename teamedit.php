@@ -3,6 +3,9 @@ include 'db.php';
 session_start();
 
 // ? add team
+$name = null;
+$query = null;
+$sql = null;
 if(isset($_POST['name']))
 {
     $name = $_POST['name'];
@@ -14,15 +17,59 @@ if(isset($_POST['name']))
 }
 
 // ? show name team for edit or delete
-$table_query = ("SELECT `id` , `name` FROM `teams` ORDER BY `point` DESC , `id` DESC");
-$table_sql =mysqli_query($db , $table_query);
+$table_query = null;
+$table_sql = null;
+if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin17')
+{
+    $table_query = ("SELECT `id` , `name` FROM `d2z17` ORDER BY `point` DESC , `id` DESC");
+    $table_sql =mysqli_query($db , $table_query);
+}
+elseif(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin15')
+{
+    $table_query = ("SELECT `id` , `name` FROM `d2z15` ORDER BY `point` DESC , `id` DESC");
+    $table_sql =mysqli_query($db , $table_query);
+}
+elseif(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin14')
+{
+    $table_query = ("SELECT `id` , `name` FROM `d2z14` ORDER BY `point` DESC , `id` DESC");
+    $table_sql =mysqli_query($db , $table_query);
+}
+elseif(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin13')
+{
+    $table_query = ("SELECT `id` , `name` FROM `d2z13` ORDER BY `point` DESC , `id` DESC");
+    $table_sql =mysqli_query($db , $table_query);
+}
 
 // ? delete one team
+$id = null;
+$delete_query = null;
+$delete_sql = null;
 if(isset($_GET['del']))
 {
-    $id = $_GET['del'];
-    $delete_query = ("DELETE FROM `teams` WHERE id = $id");
-    $delete_sql =mysqli_query($db , $delete_query);
+    if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin13')
+    {
+        $id = $_GET['del'];
+        $delete_query = ("DELETE FROM `d2z13` WHERE id = $id");
+        $delete_sql =mysqli_query($db , $delete_query);
+    }
+    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin14')
+    {
+        $id = $_GET['del'];
+        $delete_query = ("DELETE FROM `d2z14` WHERE id = $id");
+        $delete_sql =mysqli_query($db , $delete_query);
+    }
+    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin15')
+    {
+        $id = $_GET['del'];
+        $delete_query = ("DELETE FROM `d2z15` WHERE id = $id");
+        $delete_sql =mysqli_query($db , $delete_query);
+    }
+    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin17')
+    {
+        $id = $_GET['del'];
+        $delete_query = ("DELETE FROM `d2z17` WHERE id = $id");
+        $delete_sql =mysqli_query($db , $delete_query);
+    }
 
     // page refresh
     header('Location: teamedit.php');
@@ -77,17 +124,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
 
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <link href="https://hosbyte.ir/files/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
-    <link rel="stylesheet" href="https://hosbyte.ir/files/icon/icons-1.11.0/font/bootstrap-icons.min.css">
-    <link href="style.css" rel="stylesheet">
-    <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
-    <title>League Nama</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link href="https://hosbyte.ir/files/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
+        <link rel="stylesheet" href="https://hosbyte.ir/files/icon/icons-1.11.0/font/bootstrap-icons.min.css">
+        <link href="style.css" rel="stylesheet">
+        <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
+        <title>League Nama</title>
+    </head>
     <body class="body">
         <!-- // ? add modal -->
         <div class="modal fade" id="addmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -150,7 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
+                            <a class="nav-link active" aria-current="page" href="#">خانه</a>
                         </li
                         <li class="nav-item">
                             <a class="nav-link" href="register.php">ثبت نتایج</a>

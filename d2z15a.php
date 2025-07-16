@@ -3,9 +3,9 @@ include 'db.php';
 session_start();
 
 // ? admin check
-if (isset($_SESSION['user']) && $_SESSION['role'] === 'admin')
-{
-    header('location : index.php');
+if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'd2admin15') {
+    // انتقال به صفحه ورود یا نمایش پیغام
+    header('Location: login.php');
     exit();
 }
 
