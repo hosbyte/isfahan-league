@@ -61,69 +61,11 @@ $sql = mysqli_query($db , $query);
             </div>
         </div>
     </nav>
-    
-    <!-- // ? table -->
-    <!-- <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 col-xl-8">
-                <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                    <table class="table table-primary table-striped">
-                            <thead style="text-align: center;">
-                                <tr>
-                                    <th scope="col">رتبه</th>
-                                    <th scope="col">نام تیم</th>
-                                    <th scope="col">امتیاز</th>
-                                    <th scope="col">بازی</th>
-                                    <th scope="col">برد</th>
-                                    <th scope="col">مساوی</th>
-                                    <th scope="col">باخت</th>
-                                    <th scope="col">گل زده</th>
-                                    <th scope="col">گل خورده</th>
-                                    <th scope="col">تفاضل گل</th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;">
-                                <?php
-                                    $num = 0;
-                                    while ($show = mysqli_fetch_assoc($sql))
-                                    {
-                                        $num++;
-                                        $name = $show['name'];
-                                        $point = $show['point'];
-                                        $mp = $show['mp'];
-                                        $win = $show['win'];
-                                        $drow =$show['drow'];
-                                        $lost = $show['lost'];
-                                        $gf = $show['f'];
-                                        $ga = $show['a'];
-                                        $gd = $show['gd'];
-                                        echo "
-                                            <tr>
-                                                <th scope=\"row\">$num</th>
-                                                <td>$name</td>
-                                                <td>$point</td>
-                                                <td>$mp</td>
-                                                <td>$win</td>
-                                                <td>$drow</td>
-                                                <td>$lost</td>
-                                                <td>$gf</td>
-                                                <td>$ga</td>
-                                                <td>$gd</td>
-                                            </tr>
-                                        ";
-                                    }
-                                ?>
-                            </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
-    <!-- // TODO: card show -->
+    <!-- // ? card show -->
     <div class="row" style="text-align: center;">
         <!-- // ? zire  17 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
+        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
             <div class="cart-back card">
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 17 سال</h5>
@@ -133,7 +75,7 @@ $sql = mysqli_query($db , $query);
             </div>
         </div>
         <!-- // ? zire  15 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
+        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
             <div class="cart-back card">
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 15 سال</h5>
@@ -143,7 +85,7 @@ $sql = mysqli_query($db , $query);
             </div>
         </div> 
         <!-- // ? zire  14 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
+        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
             <div class="cart-back card"> 
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 14 سال</h5>
@@ -153,7 +95,7 @@ $sql = mysqli_query($db , $query);
             </div>
         </div> 
         <!-- // ? zire  13 -->
-        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-bottom: 20px;">
+        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px; padding-bottom: 20px;">
             <div class="cart-back card">
                 <div class="cart-back cart card-body">
                     <h5 class="card-title">زیر 13 سال</h5>

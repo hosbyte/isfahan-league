@@ -312,9 +312,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">خانه</a>
-                        </li
+                        <?php
+                                if($_SESSION['username'] === 'd2admin17')
+                                {
+                                    echo "
+                                        <li class=\"nav-item\">
+                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z17a.php\">خانه</a>
+                                         </li>
+                                    ";
+                                } 
+                                else if($_SESSION['username'] === 'd2admin15')
+                                {
+                                    echo "
+                                        <li class=\"nav-item\">
+                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z15a.php\">خانه</a>
+                                         </li>
+                                    ";
+                                }
+                                else if($_SESSION['username'] === 'd2admin13')
+                                {
+                                    echo "
+                                        <li class=\"nav-item\">
+                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z13a.php\">خانه</a>
+                                         </li>
+                                    ";
+                                }
+                                else if($_SESSION['username'] === 'd2admin14')
+                                {
+                                    echo "
+                                        <li class=\"nav-item\">
+                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z14a.php\">خانه</a>
+                                         </li>
+                                    ";
+                                }
+                            ?>
                         <li class="nav-item">
                             <a class="nav-link" href="register.php">ثبت نتایج</a>
                         </li>
