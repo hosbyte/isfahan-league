@@ -27,13 +27,13 @@ $sql = mysqli_query($db , $query);
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
-    <title>League Nama</title>
+    <title>isfahan league</title>
 </head>
 <body class="body">
     <!-- // ? navbar -->
     <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">لیگ نما</a>
+            <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">اصفهان لیگ </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,22 +52,22 @@ $sql = mysqli_query($db , $query);
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
                 <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                    <table class="table table-primary table-striped">
-                            <thead style="text-align: center;">
-                                <tr>
-                                    <th scope="col">رتبه</th>
-                                    <th scope="col">نام تیم</th>
-                                    <th scope="col">امتیاز</th>
-                                    <th scope="col">بازی</th>
-                                    <th scope="col">برد</th>
-                                    <th scope="col">مساوی</th>
-                                    <th scope="col">باخت</th>
-                                    <th scope="col">گل زده</th>
-                                    <th scope="col">گل خورده</th>
-                                    <th scope="col">تفاضل گل</th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;">
+                    <table class="gradient-table-wrapper gradient-table" style="color : black;">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <th scope="col">رتبه</th>
+                                <th scope="col">نام تیم</th>
+                                <th scope="col">امتیاز</th>
+                                <th scope="col">بازی</th>
+                                <th scope="col">برد</th>
+                                <th scope="col">مساوی</th>
+                                <th scope="col">باخت</th>
+                                <th scope="col">گل زده</th>
+                                <th scope="col">گل خورده</th>
+                                <th scope="col">تفاضل گل</th>
+                            </tr>
+                        </thead>
+                        <tbody style="text-align: center;">
                                 <?php
                                     $num = 0;
                                     while ($show = mysqli_fetch_assoc($sql))
@@ -98,8 +98,8 @@ $sql = mysqli_query($db , $query);
                                         ";
                                     }
                                 ?>
-                            </tbody>
-                    </table>
+                        </tbody>
+                    </table>   
                 </div>
             </div>
         </div>
@@ -123,6 +123,66 @@ $sql = mysqli_query($db , $query);
             .table-responsive-md th:nth-child(6) {
                 display: none;
             }
+        }
+
+        .gradient-table-wrapper {
+        background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
+        border-radius: 10px;
+        padding: 1px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-table {
+            width: 100%;
+            background-color: transparent;
+            border-collapse: collapse;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .gradient-table thead tr {
+            /* background: linear-gradient(to right, rgba(146, 254, 157, 1), rgba(0, 200, 255, 1)); */
+            /* background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 255, 1)); */
+            /* background:  rgba(194, 55, 55, 1); */
+            background: linear-gradient(to right, #00c8ffff, #92fe9dff);
+            /* background: linear-gradient(to bottom, #eea47f, #00539c); */
+            color: white;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
+        }
+        
+        .gradient-table tbody tr {
+            /* background-color: rgba(255, 255, 255, 0.15); */
+            /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 255, 1));  */
+            /* background: linear-gradient(to bottom, rgba(0, 0, 255, 1), rgba(0, 0, 0, 1));  */
+            /* background:  #4b4747ff;  */
+            background: linear-gradient(to right, #00c8ffff, #92fe9dff);
+            /* background: linear-gradient(to bottom, #fcf6f5, #2bae66); */
+            /* background: linear-gradient(to bottom, #00539c, #eea47f); */
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-table tbody tr:nth-child(even) {
+            /* background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 255, 1));  */
+            /* background:  rgba(194, 55, 55, 1);  */
+            background: linear-gradient(to right, #00c8ffff, #92fe9dff);
+            /* background: linear-gradient(to bottom, #eea47f, #00539c); */
+        }
+        
+        /* .gradient-table tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.4);
+        } */
+        
+        .gradient-table th, 
+        .gradient-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-table th {
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
     </style>
 </body>

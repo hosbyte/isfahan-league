@@ -1,5 +1,5 @@
 <?php
-  $db = mysqli_connect('localhost' , '' , '' , '');
+  $db = mysqli_connect('localhost' , 'isfahanl' , '?4V#DT6aM@OS' , 'isfahanl_league');
 
   if (!$db)
   {

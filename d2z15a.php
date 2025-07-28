@@ -26,14 +26,14 @@ $sql =mysqli_query($db , $query);
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
-    <title>League Nama</title>
+    <title>isfahan league</title>
 </head>
 <body class="body">
     
     <!-- // ? navbar -->
     <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">لیگ نما</a>
+            <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">اصفهان لیگ </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,7 +43,7 @@ $sql =mysqli_query($db , $query);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
+                        <a class="nav-link active" aria-current="page" href="#">خانه</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="teamedit.php">افزودن تیم</a>

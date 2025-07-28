@@ -3,31 +3,31 @@ include 'db.php';
 session_start();
 
 // ? admin check
-if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin17')
+// if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin17')
+// {
+//     header('Location: d2z17a.php');
+//     exit();
+// }
+// elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin15')
+// {
+//     header('Location: d2z15a.php');
+//     exit();
+// }
+// elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin14')
+// {
+//     header('Location: d2z14a.php');
+//     exit();
+// }
+// elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin13')
+// {
+//     header('Location: d2z13a.php');
+//     exit();
+// }
+if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'majid')
 {
-    header('Location: d2z17a.php');
+    header('Location: admin.php');
     exit();
 }
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin15')
-{
-    header('Location: d2z15a.php');
-    exit();
-}
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin14')
-{
-    header('Location: d2z14a.php');
-    exit();
-}
-elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin13')
-{
-    header('Location: d2z13a.php');
-    exit();
-}
-
-// ? database conecttion
-$query = ("SELECT * FROM `teams` ORDER BY point DESC , gd DESC ");
-$sql = mysqli_query($db , $query);
-
 
 ?>
 
@@ -42,13 +42,13 @@ $sql = mysqli_query($db , $query);
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
-    <title>League Nama</title>
+    <title>isfahan league</title>
 </head>
 <body class="body">
     <!-- // ? navbar -->
     <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">لیگ نما</a>
+            <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">اصفهان لیگ </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -106,7 +106,6 @@ $sql = mysqli_query($db , $query);
         </div>
     </div>
    
-
     <!-- // ?footer -->
     <footer class="footer">
         <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>

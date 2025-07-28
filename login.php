@@ -5,34 +5,51 @@ session_start();
 //?بررسی سسشن ها
 if(isset($_SESSION['user']))
 {
-  //?بررسی ادمین بودن کاربر
-  if($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin17')
+  if($_SESSION['role'] = 'admin' )
   {
-    header('Location: d2z17a.php');
-    exit();
-  }
-  elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin115')
-  {
-    header('Location: d2z15a.php');
-    exit();
-  }
-  elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin14')
-  {
-    header('Location: d2z14a.php');
-    exit();
-  }
-  elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin13')
-  {
-    header('Location: d2z13a.php');
-    exit();
+    header('location : admin.php');
   }
   else
   {
-    header('Location: index.php');
-    exit();
+    header('location : index.php');
   }
-  exit();
 }
+// if(isset($_SESSION['user']))
+// {
+
+//   // //?بررسی ادمین بودن کاربر
+//   // if($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin17')
+//   // {
+//   //   header('Location: d2z17a.php');
+//   //   exit();
+//   // }
+//   // elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin115')
+//   // {
+//   //   header('Location: d2z15a.php');
+//   //   exit();
+//   // }
+//   // elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin14')
+//   // {
+//   //   header('Location: d2z14a.php');
+//   //   exit();
+//   // }
+//   // elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'admin13')
+//   // {
+//   //   header('Location: d2z13a.php');
+//   //   exit();
+//   // }
+//   // elseif($_SESSION['role'] == 'admin' && $_SESSION['user'] == 'majid')
+//   // {
+//   //   header('Location: admin.php');
+//   //   exit();
+//   // }
+//   // else
+//   // {
+//   //   header('Location: index.php');
+//   //   exit();
+//   // }
+//   exit();
+// }
 
 // اگر کاربر لاگین نکرده باشد، مقدار سشن را پاک می‌کنیم
 $_SESSION['fullname'] = '';
@@ -51,7 +68,7 @@ $_SESSION['tel'] = '';
     <link href="style.css" rel="stylesheet">
     <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
-    <title>League Nama</title>
+    <title>isfahan league</title>
   </head>
 
   <body class="body"> 
@@ -139,6 +156,10 @@ $_SESSION['tel'] = '';
               {
                 window.location.href = 'd2z13a.php';
               } 
+              else if (username === 'majid')
+              {
+                window.location.href = 'admin.php';
+              }
               else 
               {
                 alert("کاربر ناشناخته");

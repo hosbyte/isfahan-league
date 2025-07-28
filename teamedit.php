@@ -249,7 +249,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
         <link href="style.css" rel="stylesheet">
         <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
-        <title>League Nama</title>
+    <title>isfahan league</title>
     </head>
     <body class="body">
         <!-- // ? add modal -->
