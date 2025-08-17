@@ -23,16 +23,11 @@ session_start();
 //     header('Location: d2z13a.php');
 //     exit();
 // }
-if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'majid')
+if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'majid')
 {
     header('Location: admin.php');
     exit();
 }
-
-// ? database conecttion
-$query = ("SELECT * FROM `teams` ORDER BY point DESC , gd DESC ");
-$sql = mysqli_query($db , $query);
-
 
 ?>
 
@@ -60,7 +55,7 @@ $sql = mysqli_query($db , $query);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">ورود</a>
+                        <a class="nav-link" href="logout.php">خروج</a>
                     </li>
                 </ul>
             </div>

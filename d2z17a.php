@@ -3,12 +3,12 @@ include 'db.php';
 session_start();
 
 // ? admin check
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'd2admin17') 
-{
-    // انتقال به صفحه ورود یا نمایش پیغام
-    header('Location: login.php');
-    exit();
-}
+// if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'd2admin17') 
+// {
+//     // انتقال به صفحه ورود یا نمایش پیغام
+//     header('Location: login.php');
+//     exit();
+// }
 
 
 // ? database conection

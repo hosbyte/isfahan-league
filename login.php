@@ -52,8 +52,8 @@ if(isset($_SESSION['user']))
 // }
 
 // اگر کاربر لاگین نکرده باشد، مقدار سشن را پاک می‌کنیم
-$_SESSION['fullname'] = '';
-$_SESSION['tel'] = '';
+// $_SESSION['fullname'] = '';
+// $_SESSION['tel'] = '';
 
 ?>
 
