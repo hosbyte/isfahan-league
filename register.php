@@ -27,19 +27,8 @@ $show_sql = null;
 $row = null;
 
 // ? read database for show teams name
-// TODO:
-// if( isset($_POST['table']) && !empty($_POST['table']))
-// {
-//     $table = $_POST['table'];
-//     $show_query = ("SELECT * FROM `$table`");
-//     $show_sql = mysqli_query($db , $show_query);
-//     $row = mysqli_fetch_assoc($show_sql); 
-//     echo"1";
-//     exit();
-    
-// }
-
 if(isset($_POST['table']) && !empty($_POST['table'])) {
+    $_SESSION['table'] = $_POST['table'];
     $table = $_POST['table'];
     
     // اعتبارسنجی نام جدول
@@ -60,18 +49,17 @@ if(isset($_POST['table']) && !empty($_POST['table'])) {
     while($row = mysqli_fetch_assoc($show_sql)) {
         $_SESSION['teams_data'][] = $row;
     }
-    
     echo "1";
     exit();
+    return;
 }
-
-
-
 
 // ? register
 if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_POST['gf']) && isset($_POST['ga']))
 {   
     
+    $table = $_SESSION['table'] ?? null;
+    //var_dump($table);
     $team_id = intval($_POST['team_id']);
     $gf = intval($_POST['gf']);
     $ga = intval($_POST['ga']);
@@ -116,8 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
         ,`lost` = '$db_lost' ,`f` = '$db_gf' , `a` = '$db_ga' , `gd` = '$db_gd' WHERE `id` = '$team_id'");
         $save_sql = mysqli_query($db , $save_query);
     }
-    
-    echo"1";
+    echo "1";
     exit();
 }
 
@@ -140,7 +127,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
     <body>  
         <div class="body" >
             <!-- // ? navbar -->
-             <!-- FIXME: home button -->
             <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
                 <div class="container-fluid">
                     <a class="navbar-brand" style="color:rgb(255, 255, 255);"  href="#">ثبت نتایج</a>
@@ -149,42 +135,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <!-- <php
-                                if($_SESSION['username'] === 'd2admin17')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z17a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                } 
-                                else if($_SESSION['username'] === 'd2admin15')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z15a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                }
-                                else if($_SESSION['username'] === 'd2admin13')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z13a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                }
-                                else if($_SESSION['username'] === 'd2admin14')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z14a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                }
-                            ?> -->
                             <li class="nav-item">
-                                <a class="nav-link" href="teamedit.php">افزودن تیم</a>
+                                <a class="nav-link" href="admin.php">خانه</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="logout.php">خروج</a>
@@ -194,7 +149,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                 </div>
             </nav>
 
-            <!-- // TODO: select database -->
+            <!-- //? select database -->
             <div class="container-fluid py-5 img">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6" >
@@ -208,7 +163,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                                 <option value="d2z15" >زیر 15</option>
                                 <option value="d2z14" >زیر 14</option>
                                 <option value="d2z13" >زیر 13</option>
-                                <option value="teams" >تیم</option>
                             </select>
                             <br>
                             <div class="text-center mt-4">
@@ -219,30 +173,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                 </div>
             </div>
             
-            <!-- // TODO: register form    -->  
+            <!-- // ? register form    -->  
             <div class="container-fluid py-5 img">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 col-lg-6" >
-                        <form  method="post" onsubmit="rsend(); return false;"
+                        <form method="POST" id="register"
                          class="bg-info bg-opacity-10 p-3 p-md-5 rounded-3 shadow"
                          style="background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);">
                             <div class="mb-4">
                                 <label for="dropdown" class="form-label fw-bold">نام تیم مورد نظر را انتخاب کنید</label>
-                                <!-- <select id="dropdown" class="form-select form-select-lg">
-                                    <option value="">انتخاب کنید</option>
-                                    <php
-                                        
-                                                                        
-                                        while($row)
-                                        {
-                                            $id = $row['id'];
-                                            $name = $row['name'];
-                                            echo "
-                                                <option value=\"$id\">$name</option>
-                                            ";
-                                        }
-                                    ?>
-                                </select> -->
                                 <select id="dropdown" class="form-select form-select-lg">
                                     <option value="">انتخاب کنید</option>
                                     <?php

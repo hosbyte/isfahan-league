@@ -111,7 +111,38 @@ $(document).ready(function() {
 });
 
 
+//////////////////////////////////////////////////////////////////////////////// ? reg j
+//function rsend()
+// {
+//     const team_id = $('#dropdown').val();
+//     const gf = $('#gf').val();
+//     const ga = $('#ga').val();
 
+//     if (!team_id || !gf || !ga) {
+//         alert("لطفاً تمام فیلدها را پر کنید.");
+//         return;
+//     }
+//     $.ajax({
+//         url : 'register.php',
+//         method : 'POST',
+//         data :{
+//         team_id : $('#dropdown').val(),
+//         gf : $('#gf').val(),
+//         ga : $('#ga').val()
+//         },
+//         success : function(reg)
+//         {
+//             reg.trim() === '1'
+//             ?window.location.href='register.php'
+//             : alert ("ثبت انجام نشد");
+//         },
+//         error : function()
+//         {
+//             alert ("اتصال انجام نشد");
+//         }
+//     });
+// }
+//////////////////////////////////////////////////////////////////////////////// ? reg j
 
 
 function tsend(){

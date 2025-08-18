@@ -2,37 +2,62 @@
 include 'db.php';
 session_start();
 
+// ! check admin
+if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
+{
+    header('Location: login.php');
+    exit();
+}
+
+// ? select table
+$table = null;
+$sql_query = null;
+$sql_result = null;
+$row = null;
+if(isset($_POST['table']) && !empty($_POST['table']))
+{
+    $_SESSION['tableselect'] = $_POST['table'];
+    $table = $_POST['table'];
+
+    // اعتبارسنجی نام جدول
+    $allowed_tables = ['d2z17', 'd2z15', 'd2z14', 'd2z13'];
+    if(!in_array($table, $allowed_tables)) 
+    {
+        die("0"); // جدول نامعتبر
+    }
+
+    $sql_query = ("SELECT id, name FROM `$table`");
+    $sql_result = mysqli_query($db , $sql_query);
+
+    if(!$sql_result)
+    {
+        die("0");
+    }
+
+    // ? save all data
+    $_SESSION["save_data"] = [];
+    while($row = mysqli_fetch_assoc($sql_result))
+    {
+        $_SESSION["save_data"][] = $row;
+    }
+    echo "1";
+    exit();
+    return;
+}
+
 // ? add team
 $name = null;
 $query = null;
 $sql = null;
 if(isset($_POST['name']))
 {
-    if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin17')
+    if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
     {
+        $table = $_SESSION["tableselect"];
         $name = $_POST['name'];
-        $query = ("INSERT INTO `d2z17`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
+        $query = ("INSERT INTO `$table`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
         $sql = mysqli_query($db , $query);
     }
-    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin15')
-    {
-        $name = $_POST['name'];
-        $query = ("INSERT INTO `d2z15`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
-        $sql = mysqli_query($db , $query);
-    }
-    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin14')
-    {
-        $name = $_POST['name'];
-        $query = ("INSERT INTO `d2z14`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
-        $sql = mysqli_query($db , $query);
-    }
-    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin13')
-    {
-        $name = $_POST['name'];
-        $query = ("INSERT INTO `d2z13`(`name`, `point`, `mp`, `win`, `drow`, `lost`, `f`, `a`, `gd`) VALUES ('$name','0','0','0','0','0','0','0','0')");
-        $sql = mysqli_query($db , $query);
-    }
-    
 
     //page refresh
     header('Location: teamedit.php');
@@ -40,27 +65,11 @@ if(isset($_POST['name']))
 
 // ? show name team for edit or delete
 $table_query = null;
-$table_sql = null;
-if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin17')
-{
-    $table_query = ("SELECT `id` , `name` FROM `d2z17` ORDER BY `point` DESC , `id` DESC");
-    $table_sql =mysqli_query($db , $table_query);
-}
-elseif(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin15')
-{
-    $table_query = ("SELECT `id` , `name` FROM `d2z15` ORDER BY `point` DESC , `id` DESC");
-    $table_sql =mysqli_query($db , $table_query);
-}
-elseif(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin14')
-{
-    $table_query = ("SELECT `id` , `name` FROM `d2z14` ORDER BY `point` DESC , `id` DESC");
-    $table_sql =mysqli_query($db , $table_query);
-}
-elseif(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin13')
-{
-    $table_query = ("SELECT `id` , `name` FROM `d2z13` ORDER BY `point` DESC , `id` DESC");
-    $table_sql =mysqli_query($db , $table_query);
-}
+$table_sql = null;  
+// ? query
+$table = $_SESSION["tableselect"];
+$table_query = ("SELECT `id` , `name` FROM `$table` ORDER BY `point` DESC , `id` DESC");
+$table_sql =mysqli_query($db , $table_query);
 
 // ? delete one team
 $id = null;
@@ -68,28 +77,11 @@ $delete_query = null;
 $delete_sql = null;
 if(isset($_GET['del']))
 {
-    if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin13')
+    if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
     {
+        $table = $_SESSION["tableselect"];
         $id = $_GET['del'];
-        $delete_query = ("DELETE FROM `d2z13` WHERE id = $id");
-        $delete_sql =mysqli_query($db , $delete_query);
-    }
-    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin14')
-    {
-        $id = $_GET['del'];
-        $delete_query = ("DELETE FROM `d2z14` WHERE id = $id");
-        $delete_sql =mysqli_query($db , $delete_query);
-    }
-    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin15')
-    {
-        $id = $_GET['del'];
-        $delete_query = ("DELETE FROM `d2z15` WHERE id = $id");
-        $delete_sql =mysqli_query($db , $delete_query);
-    }
-    else if(isset($_SESSION['role']) && $_SESSION['username'] === 'd2admin17')
-    {
-        $id = $_GET['del'];
-        $delete_query = ("DELETE FROM `d2z17` WHERE id = $id");
+        $delete_query = ("DELETE FROM `$table` WHERE id = $id");
         $delete_sql =mysqli_query($db , $delete_query);
     }
 
@@ -98,45 +90,16 @@ if(isset($_GET['del']))
     exit();
 }
 
-// ? edit teams name
+// ? show teams name for edit in modal
 $name_show = null;
 $show_id = null;
 if(isset($_GET['edit']))
 {
-    if($_SESSION['username'] === 'd2admin17')
+    if($_SESSION['role'] === 'admin')
     {
+        $table = $_SESSION["tableselect"];
         $show_id = intval($_GET['edit']);
-        $show_query = ("SELECT `name` FROM `d2z17` WHERE `id` = '$show_id'");
-        $show_sql = mysqli_query($db , $show_query);
-        while($read = mysqli_fetch_assoc($show_sql))
-        {
-            $name_show = $read['name'];
-        }
-    }
-    else if($_SESSION['username'] === 'd2admin15')
-    {
-        $show_id = intval($_GET['edit']);
-        $show_query = ("SELECT `name` FROM `d2z15` WHERE `id` = '$show_id'");
-        $show_sql = mysqli_query($db , $show_query);
-        while($read = mysqli_fetch_assoc($show_sql))
-        {
-            $name_show = $read['name'];
-        }
-    }
-    else if($_SESSION['username'] === 'd2admin14')
-    {
-        $show_id = intval($_GET['edit']);
-        $show_query = ("SELECT `name` FROM `d2z14` WHERE `id` = '$show_id'");
-        $show_sql = mysqli_query($db , $show_query);
-        while($read = mysqli_fetch_assoc($show_sql))
-        {
-            $name_show = $read['name'];
-        }
-    }
-    else if($_SESSION['username'] === 'd2admin13')
-    {
-        $show_id = intval($_GET['edit']);
-        $show_query = ("SELECT `name` FROM `d2z13` WHERE `id` = '$show_id'");
+        $show_query = ("SELECT `name` FROM `$table` WHERE `id` = '$show_id'");
         $show_sql = mysqli_query($db , $show_query);
         while($read = mysqli_fetch_assoc($show_sql))
         {
@@ -144,34 +107,19 @@ if(isset($_GET['edit']))
         }
     }
 }
-// * update team
+// ? update teams name
 if (isset($_POST['update']))
 {
+    $table = $_SESSION["tableselect"];
     $show_id = $_POST['team_id'];
     $team_name = $_POST['team_name'];
 
     // ! query
-    if($_SESSION['username'] === 'd2admin17')
+    if($_SESSION['role'] === 'admin')
     {
-        $update_query = ("UPDATE `d2z17` SET `name` = '$team_name' WHERE `id` = '$show_id'");
+        $update_query = ("UPDATE `$table` SET `name` = '$team_name' WHERE `id` = '$show_id'");
         $update_sql = mysqli_query($db , $update_query);
     }
-    else if($_SESSION['username'] === 'd2admin15')
-    {
-        $update_query = ("UPDATE `d2z15` SET `name` = '$team_name' WHERE `id` = '$show_id'");
-        $update_sql = mysqli_query($db , $update_query);
-    }
-    else if($_SESSION['username'] === 'd2admin14')
-    {
-        $update_query = ("UPDATE `d2z14` SET `name` = '$team_name' WHERE `id` = '$show_id'");
-        $update_sql = mysqli_query($db , $update_query);
-    }
-    else if($_SESSION['username'] === 'd2admin13')
-    {
-        $update_query = ("UPDATE `d2z13` SET `name` = '$team_name' WHERE `id` = '$show_id'");
-        $update_sql = mysqli_query($db , $update_query);
-    }
-
     // page refresh for update
     header('Location: teamedit.php');
     exit();
@@ -181,48 +129,10 @@ if (isset($_POST['update']))
 $delete_all = null;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all'])) 
 {
-    if($_SESSION['username'] === 'd2admin17')
+    if($_SESSION['role'] === 'admin')
     {
-        $delete_all = "TRUNCATE TABLE d2z17";
-        if (mysqli_query($db, $delete_all)) 
-        {
-            echo "تمام تیم‌ها حذف شدند.";
-        } 
-        else 
-        {
-            http_response_code(500);
-            echo "خطا در حذف: " . mysqli_error($db);
-        }
-    }
-    else if($_SESSION['username'] === 'd2admin15')
-    {
-        $delete_all = "TRUNCATE TABLE d2z15";
-        if (mysqli_query($db, $delete_all)) 
-        {
-            echo "تمام تیم‌ها حذف شدند.";
-        } 
-        else 
-        {
-            http_response_code(500);
-            echo "خطا در حذف: " . mysqli_error($db);
-        }
-    }
-    else if($_SESSION['username'] === 'd2admin14')
-    {
-        $delete_all = "TRUNCATE TABLE d2z14";
-        if (mysqli_query($db, $delete_all)) 
-        {
-            echo "تمام تیم‌ها حذف شدند.";
-        } 
-        else 
-        {
-            http_response_code(500);
-            echo "خطا در حذف: " . mysqli_error($db);
-        }
-    }
-    else if($_SESSION['username'] === 'd2admin13')
-    {
-        $delete_all = "TRUNCATE TABLE d2z13";
+        $table = $_SESSION["tableselect"];
+        $delete_all = "TRUNCATE TABLE $table";
         if (mysqli_query($db, $delete_all)) 
         {
             echo "تمام تیم‌ها حذف شدند.";
@@ -249,6 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
         <link href="style.css" rel="stylesheet">
         <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
+        <script  src="jquery.js"></script>
     <title>isfahan league</title>
     </head>
     <body class="body">
@@ -312,40 +223,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
-                        <?php
-                                if($_SESSION['username'] === 'd2admin17')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z17a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                } 
-                                else if($_SESSION['username'] === 'd2admin15')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z15a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                }
-                                else if($_SESSION['username'] === 'd2admin13')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z13a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                }
-                                else if($_SESSION['username'] === 'd2admin14')
-                                {
-                                    echo "
-                                        <li class=\"nav-item\">
-                                            <a class=\"nav-link active\" aria-current=\"page\" href=\"d2z14a.php\">خانه</a>
-                                         </li>
-                                    ";
-                                }
-                            ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin.php">خانه</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.php">ثبت نتایج</a>
                         </li>
@@ -356,6 +236,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                 </div>
             </div>
         </nav>
+
+        <!-- // ? select database -->
+        <div class="container-fluid py-5 img">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6" >
+                    <form  method="POST" id="teamtable"
+                     class="bg-info bg-opacity-10 p-3 p-md-5 rounded-3 shadow"
+                     style="background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);">
+                        <label class="form-label fw-bold">انتخاب جدول:</label>
+                        <select id="table" class="form-select form-select-lg">
+                                <option value="">-- انتخاب کنید --</option>
+                                <option value="d2z17" >زیر 17</option>
+                                <option value="d2z15" >زیر 15</option>
+                                <option value="d2z14" >زیر 14</option>
+                                <option value="d2z13" >زیر 13</option>
+                        </select>
+                        <br>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success btn-lg px-5 py-2">انتخاب جدول</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <!-- // ? add or delete button -->
         <div class="row col-12 mb-3" style="text-align: center; margin: 20px;">
@@ -373,7 +277,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
             </div>
         </div>
 
-        <!-- // ? table for edit name  -->
+        <!-- // FIXME: table for edit name  -->
         <div class="img" style="margin-top: 50px; padding-bottom: 50px ;text-align: center;" class="container-fluid py-4 table-responsive-sm">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">
@@ -434,36 +338,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
             }
         </style>
 
-        <!-- // ? jquery -->
-        <script>
-            <!-- // ? modal show jquery -->
-            $(document).ready(function() {
-                const urlParams = new URLSearchParams(window.location.search);
-                if(urlParams.has('edit')) {
-                    const myModal = new bootstrap.Modal(document.getElementById('editmodal'));
-                    myModal.show();
-                }
-            });
-
-            // ? delete all jquery
-            $(document).ready(function() {
-                $("#delete_all").click(function() {
-                    if (confirm("آیا مطمئن هستید که می‌خواهید تمام تیم‌ها حذف شوند؟")) {
-                        $.ajax({
-                            url: 'teamedit.php',
-                            type: 'POST',
-                            data: { delete_all: true },
-                            success: function(response) {
-                                alert(response);
-                                location.reload(); // برای بروز شدن جدول بعد از حذف
-                            },
-                            error: function(xhr, status, error) {
-                                alert("خطا در حذف: " + error);
-                            }
-                        });
-                    }
-                });
-            });
-        </script>
     </body>
 </html>
