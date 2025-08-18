@@ -2,13 +2,12 @@
 include 'db.php';
 session_start();
 
-// ? admin check
-// if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'd2admin17') 
-// {
-//     // انتقال به صفحه ورود یا نمایش پیغام
-//     header('Location: login.php');
-//     exit();
-// }
+// ? check admin
+if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
+{
+    header('Location: login.php');
+    exit();
+}
 
 
 // ? database conection
@@ -45,10 +44,10 @@ $sql =mysqli_query($db , $query);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">خانه</a>
+                        <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="teamedit.php">افزودن تیم</a>
+                        <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="register.php">ثبت نتایج</a>

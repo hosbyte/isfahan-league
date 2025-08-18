@@ -6,7 +6,7 @@ session_start();
 // FIXME:
 if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'majid')
 {
-    header('Location: admin.php');
+    header('Location: login.php');
     exit();
 }
 
@@ -35,6 +35,12 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">ثبت نتایج</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">خروج</a>
                     </li>

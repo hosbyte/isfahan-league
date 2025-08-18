@@ -2,9 +2,9 @@
 include 'db.php';
 session_start();
 
-// ? admin check
-if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'd2admin13') {
-    // انتقال به صفحه ورود یا نمایش پیغام
+// ? check admin
+if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
+{
     header('Location: login.php');
     exit();
 }
@@ -37,16 +37,13 @@ $sql =mysqli_query($db , $query);
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <!-- <div >
-                <img class="img" src="img/back.png" alt="">
-            </div> -->
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">خانه</a>
+                        <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="teamedit.php">افزودن تیم</a>
+                        <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="register.php">ثبت نتایج</a>

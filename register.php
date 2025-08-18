@@ -5,6 +5,13 @@ error_reporting(E_ALL);
 include 'db.php';
 session_start();
 
+// ? check admin
+if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
+{
+    header('Location: login.php');
+    exit();
+}
+
 // * create table variable 
 $table = null;
 // * create teams register variable
