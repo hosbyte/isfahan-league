@@ -2,12 +2,6 @@
 include 'db.php';
 session_start();
 
-// ? admin check
-// if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
-// {
-//     header('Location: admin.php');
-//     exit();
-// }
 
 // ? database conecttion
 $query = ("SELECT * FROM `d2z13` ORDER BY point DESC , gd DESC ");
@@ -39,6 +33,9 @@ $sql = mysqli_query($db , $query);
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                  <li class="nav-item">
+                        <a class="nav-link" href="index.php">خانه</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">ورود</a>
                     </li>
