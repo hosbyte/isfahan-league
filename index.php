@@ -3,27 +3,7 @@ include 'db.php';
 session_start();
 
 // ? admin check
-// if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin17')
-// {
-//     header('Location: d2z17a.php');
-//     exit();
-// }
-// elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin15')
-// {
-//     header('Location: d2z15a.php');
-//     exit();
-// }
-// elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin14')
-// {
-//     header('Location: d2z14a.php');
-//     exit();
-// }
-// elseif(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'd2admin13')
-// {
-//     header('Location: d2z13a.php');
-//     exit();
-// }
-if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['user'] == 'majid')
+if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['username'] === 'majid')
 {
     header('Location: admin.php');
     exit();

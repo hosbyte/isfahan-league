@@ -3,7 +3,6 @@ include 'db.php';
 session_start();
 
 // ? admin check
-// FIXME:
 if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'majid')
 {
     header('Location: login.php');

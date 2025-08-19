@@ -65,7 +65,8 @@ if(isset($_POST['name']))
 
 // ? show name team for edit or delete
 $table_query = null;
-$table_sql = null;  
+$table_sql = null; 
+ 
 // ? query
 $table = $_SESSION["tableselect"];
 $table_query = ("SELECT `id` , `name` FROM `$table` ORDER BY `point` DESC , `id` DESC");
@@ -277,7 +278,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
             </div>
         </div>
 
-        <!-- // FIXME: table for edit name  -->
+        <!-- // ? table for edit name  -->
         <div class="img" style="margin-top: 50px; padding-bottom: 50px ;text-align: center;" class="container-fluid py-4 table-responsive-sm">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 col-xl-8">

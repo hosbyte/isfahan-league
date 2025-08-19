@@ -2,13 +2,6 @@
 include 'db.php';
 session_start();
 
-// ? admin check
-// if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin')
-// {
-//     header('Location: admin.php');
-//     exit();
-// }
-
 // ? database conecttion
 $query = ("SELECT * FROM `d2z15` ORDER BY point DESC , gd DESC ");
 $sql = mysqli_query($db , $query);
@@ -142,36 +135,23 @@ $sql = mysqli_query($db , $query);
         }
         
         .gradient-table thead tr {
-            /* background: linear-gradient(to right, rgba(146, 254, 157, 1), rgba(0, 200, 255, 1)); */
-            /* background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 255, 1)); */
-            /* background:  rgba(194, 55, 55, 1); */
-            background: linear-gradient(to right, #00c8ffff, #92fe9dff);
-            /* background: linear-gradient(to bottom, #eea47f, #00539c); */
+            background: linear-gradient(to right, #121212, #d4af37);
             color: white;
             text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
         }
         
         .gradient-table tbody tr {
-            /* background-color: rgba(255, 255, 255, 0.15); */
-            /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 255, 1));  */
-            /* background: linear-gradient(to bottom, rgba(0, 0, 255, 1), rgba(0, 0, 0, 1));  */
-            /* background:  #4b4747ff;  */
-            background: linear-gradient(to right, #00c8ffff, #92fe9dff);
-            /* background: linear-gradient(to bottom, #fcf6f5, #2bae66); */
-            /* background: linear-gradient(to bottom, #00539c, #eea47f); */
+            /* background: linear-gradient(to right, #d4af37, #121212); */
+            background: linear-gradient(to right, #121212, #d4af37);
+            color: white;
             transition: all 0.3s ease;
         }
         
         .gradient-table tbody tr:nth-child(even) {
-            /* background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 255, 1));  */
-            /* background:  rgba(194, 55, 55, 1);  */
-            background: linear-gradient(to right, #00c8ffff, #92fe9dff);
-            /* background: linear-gradient(to bottom, #eea47f, #00539c); */
+            color: white;
+            background: linear-gradient(to right, #121212, #d4af37);
         }
         
-        /* .gradient-table tbody tr:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        } */
         
         .gradient-table th, 
         .gradient-table td {

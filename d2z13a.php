@@ -3,7 +3,7 @@ include 'db.php';
 session_start();
 
 // ? check admin
-if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
+if(!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'majid')
 {
     header('Location: login.php');
     exit();

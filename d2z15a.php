@@ -61,22 +61,22 @@ $sql =mysqli_query($db , $query);
         <div class="row justify-content-center">
             <div class="col-12 col-lg-10 col-xl-8">
                 <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                    <table class="table table-primary table-striped">
-                            <thead style="text-align: center;">
-                                <tr>
-                                    <th scope="col">رتبه</th>
-                                    <th scope="col">نام تیم</th>
-                                    <th scope="col">امتیاز</th>
-                                    <th scope="col">بازی</th>
-                                    <th scope="col">برد</th>
-                                    <th scope="col">مساوی</th>
-                                    <th scope="col">باخت</th>
-                                    <th scope="col">گل زده</th>
-                                    <th scope="col">گل خورده</th>
-                                    <th scope="col">تفاضل گل</th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;">
+                    <table class="gradient-table-wrapper gradient-table" style="color : black;">
+                        <thead style="text-align: center;">
+                            <tr>
+                                <th scope="col">رتبه</th>
+                                <th scope="col">نام تیم</th>
+                                <th scope="col">امتیاز</th>
+                                <th scope="col">بازی</th>
+                                <th scope="col">برد</th>
+                                <th scope="col">مساوی</th>
+                                <th scope="col">باخت</th>
+                                <th scope="col">گل زده</th>
+                                <th scope="col">گل خورده</th>
+                                <th scope="col">تفاضل گل</th>
+                            </tr>
+                        </thead>
+                        <tbody style="text-align: center;">
                                 <?php
                                     $num = 0;
                                     while ($show = mysqli_fetch_assoc($sql))
@@ -107,8 +107,8 @@ $sql =mysqli_query($db , $query);
                                         ";
                                     }
                                 ?>
-                            </tbody>
-                    </table>
+                        </tbody>
+                    </table>   
                 </div>
             </div>
         </div>
@@ -125,13 +125,60 @@ $sql =mysqli_query($db , $query);
             .table-responsive-md td:nth-child(4),
             .table-responsive-md td:nth-child(5),
             .table-responsive-md td:nth-child(6) {
-            display: none;
+                display: none;
             }
             .table-responsive-md th:nth-child(4),
             .table-responsive-md th:nth-child(5),
             .table-responsive-md th:nth-child(6) {
-            display: none;
+                display: none;
             }
+        }
+
+        .gradient-table-wrapper {
+        background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
+        border-radius: 10px;
+        padding: 1px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gradient-table {
+            width: 100%;
+            background-color: transparent;
+            border-collapse: collapse;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .gradient-table thead tr {
+            background: linear-gradient(to right, #121212, #d4af37);
+            color: white;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
+        }
+        
+        .gradient-table tbody tr {
+            /* background: linear-gradient(to right, #d4af37, #121212); */
+            background: linear-gradient(to right, #121212, #d4af37);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-table tbody tr:nth-child(even) {
+            color: white;
+            background: linear-gradient(to right, #121212, #d4af37);
+        }
+        
+        
+        .gradient-table th, 
+        .gradient-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-table th {
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
     </style>
 </body>

@@ -222,6 +222,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                     </div>
                 </div>
             </div> 
+            <!-- // ? empty div  -->
+            <div style="height: 50px;"></div>
 
             <!-- // ? footer -->
             <footer class="footer">
