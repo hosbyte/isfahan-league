@@ -56,6 +56,10 @@ $sql =mysqli_query($db , $query);
         </div>
     </nav>
     
+    <div class="box-name">
+      <h4>لیگ برتر زیر ۱۳ سال</h4>
+    </div>
+
     <!-- // ? table -->
     <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
         <div class="row justify-content-center">
@@ -134,6 +138,39 @@ $sql =mysqli_query($db , $query);
             }
         }
 
+        /*  box for show league name  */
+        .box-name {
+          position: relative;
+          margin: 40px auto;
+          padding: 15px 25px;
+          max-width: 600px;
+          width: 90%;
+          background: linear-gradient(to right, #121212, #d4af37);
+          color: white;
+          text-align: center;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          font-family: 'Vazir', sans-serif; /* اگر فونت فارسی داری */
+        }
+
+        .box-name h4 {
+          margin: 0;
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+
+        /* ریسپانسیو برای موبایل */
+        @media (max-width: 480px) {
+          .box-name {
+            padding: 12px 18px;
+            font-size: 1rem;
+          }
+
+          .box-name h4 {
+            font-size: 1.2rem;
+          }
+        }
+        
         .gradient-table-wrapper {
         background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
         border-radius: 10px;

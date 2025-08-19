@@ -39,7 +39,7 @@ if(isset($_POST['table']) && !empty($_POST['table'])) {
     $table = $_POST['table'];
     
     // اعتبارسنجی نام جدول
-    $allowed_tables = ['d2z17', 'd2z15', 'd2z14', 'd2z13'];
+    $allowed_tables = ['d2z17', 'd2z15', 'd2z14', 'd2z13', 'bartar13', 'bartar15'];
     if(!in_array($table, $allowed_tables)) {
         die("0"); // جدول نامعتبر
     }
@@ -166,10 +166,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                             <label class="form-label fw-bold">انتخاب جدول:</label>
                             <select id="table" class="form-select form-select-lg">
                                 <option value="">-- انتخاب کنید --</option>
-                                <option value="d2z17" >زیر 17</option>
-                                <option value="d2z15" >زیر 15</option>
-                                <option value="d2z14" >زیر 14</option>
-                                <option value="d2z13" >زیر 13</option>
+                                <option value="bartar15" >زیر 15 سال لیگ برتر</option>
+                                <option value="bartar13" >زیر 13 سال لیگ برتر</option>
+                                <option value="d2z17" >زیر 17 دسته دو</option>
+                                <option value="d2z15" >زیر 15 دسته 2</option>
+                                <option value="d2z14" >زیر 14 دسته دو</option>
+                                <option value="d2z13" >زیر 13 دسته دو</option>
                             </select>
                             <br>
                             <div class="text-center mt-4">

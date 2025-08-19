@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include 'db.php';
 session_start();
 
@@ -20,7 +23,7 @@ if(isset($_POST['table']) && !empty($_POST['table']))
     $table = $_POST['table'];
 
     // اعتبارسنجی نام جدول
-    $allowed_tables = ['d2z17', 'd2z15', 'd2z14', 'd2z13'];
+    $allowed_tables = ['d2z17', 'd2z15', 'd2z14', 'd2z13', 'bartar13', 'bartar15'];
     if(!in_array($table, $allowed_tables)) 
     {
         die("0"); // جدول نامعتبر
@@ -68,10 +71,12 @@ $table_query = null;
 $table_sql = null; 
  
 // ? query
-$table = $_SESSION["tableselect"];
-$table_query = ("SELECT `id` , `name` FROM `$table` ORDER BY `point` DESC , `id` DESC");
-$table_sql =mysqli_query($db , $table_query);
-
+if(isset($_SESSION['tableselect']))
+{
+    $table = $_SESSION["tableselect"];
+    $table_query = ("SELECT `id` , `name` FROM `$table` ORDER BY `point` DESC , `id` DESC");
+    $table_sql =mysqli_query($db , $table_query);
+}
 // ? delete one team
 $id = null;
 $delete_query = null;
@@ -161,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
         <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
         <script  src="jquery.js"></script>
-    <title>isfahan league</title>
+        <title>isfahan league</title>
     </head>
     <body class="body">
         <!-- // ? add modal -->
@@ -248,10 +253,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                         <label class="form-label fw-bold">انتخاب جدول:</label>
                         <select id="table" class="form-select form-select-lg">
                                 <option value="">-- انتخاب کنید --</option>
-                                <option value="d2z17" >زیر 17</option>
-                                <option value="d2z15" >زیر 15</option>
-                                <option value="d2z14" >زیر 14</option>
-                                <option value="d2z13" >زیر 13</option>
+                                <option value="bartar15" >زیر 15 سال لیگ برتر</option>
+                                <option value="bartar13" >زیر 13 سال لیگ برتر</option>
+                                <option value="d2z17" >زیر 17 دسته دو</option>
+                                <option value="d2z15" >زیر 15 دسته دو</option>
+                                <option value="d2z14" >زیر 14 دسته دو</option>
+                                <option value="d2z13" >زیر 13 دسته دو</option>
                         </select>
                         <br>
                         <div class="text-center mt-4">
@@ -295,20 +302,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                                 <tbody style="text-align: center;">
                                     <?php
                                         $num = 0;
-                                        while($show = mysqli_fetch_assoc($table_sql))
+                                        if(isset($_SESSION['tableselect']))
                                         {
-                                            $num++;
-                                            $id = $show['id'];
-                                            $name = $show['name'];
-                                            echo "
-                                                <tr>
-                                                <th scope=\"row\">$num</th>
-                                                <td>$name</td>
-                                                <td> 
-                                                <a href=\"?edit=$id\" type=\"button\" class=\"btn btn-warning\"> <i class=\"bi bi-pencil-square\"></i> تغییر نام</a> 
-                                                <a href=\"?del=$id\" type=\"button\" class=\"btn btn-danger\"> <i class=\"bi bi-trash-fill\"></i> حذف تیم</a> </td>
-                                                </tr>
-                                            ";
+                                            while($show = mysqli_fetch_assoc($table_sql))
+                                            {
+                                                $num++;
+                                                $id = $show['id'];
+                                                $name = $show['name'];
+                                                echo "
+                                                    <tr>
+                                                    <th scope=\"row\">$num</th>
+                                                    <td>$name</td>
+                                                    <td> 
+                                                    <a href=\"?edit=$id\" type=\"button\" class=\"btn btn-warning\"> <i class=\"bi bi-pencil-square\"></i> تغییر نام</a> 
+                                                    <a href=\"?del=$id\" type=\"button\" class=\"btn btn-danger\"> <i class=\"bi bi-trash-fill\"></i> حذف تیم</a> </td>
+                                                    </tr>
+                                                ";
+                                            }
                                         }
                                     ?>
                                 </tbody>

@@ -1,10 +1,10 @@
-// ! register
+// ! test jquery
 // * jquery test
 $(document).ready(function () {
   console.log("jQuery loaded"); 
 });
 
-// TODO:
+// ! register page
 // * register 
 $(document).ready(function () {
     $('#register').on('submit' , function(e) {
@@ -80,7 +80,7 @@ $(document).ready(function () {
     });
 });
 
-// ! teamedit
+// ! teamedit page
 // * show table
 $(document).ready(function () {
     $('#teamtable').on('submit' , function(e) {
