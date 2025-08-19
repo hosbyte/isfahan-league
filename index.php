@@ -44,6 +44,26 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['usern
 
     <!-- // ? card show -->
     <div class="row" style="text-align: center;">
+        <!-- // ? bartar  15 -->
+        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+            <div class="cart-back card">
+                <div class="cart-back cart card-body">
+                    <h5 class="card-title">زیر 15 سال</h5>
+                    <p class="card-text">لیگ برتر</p>
+                    <a href="bartar15.php" class="btn btn-primary">مشاهده جدول</a>
+                </div>
+            </div>
+        </div>
+        <!-- // ? bartar  13 -->
+        <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+            <div class="cart-back card">
+                <div class="cart-back cart card-body">
+                    <h5 class="card-title">زیر 13 سال</h5>
+                    <p class="card-text">لیگ برتر</p>
+                    <a href="bartar13.php" class="btn btn-primary">مشاهده جدول</a>
+                </div>
+            </div>
+        </div>
         <!-- // ? zire  17 -->
         <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
             <div class="cart-back card">
@@ -90,6 +110,9 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['usern
     <footer class="footer">
         <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
     </footer>
+
+    <!-- // ? empty div -->
+    <div style="height: 100px;"></div>
 
     <!-- // ? style for table -->
     <style>
