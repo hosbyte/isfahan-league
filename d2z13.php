@@ -48,100 +48,53 @@ $sql = mysqli_query($db , $query);
     </nav>
     
     <!-- // ? table -->
-    <!-- <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10 col-xl-8">
-                <div class="table-responsive rounded-3 shadow-sm " style="margin-bottom: 80px;">
-                    <div class="gradient-table-wrapper">
-                        <table class="gradient-table">
-                            <thead>
-                                <tr>
-                                    <th>رتبه</th>
-                                    <th>نام تیم</th>
-                                    <th>امتیاز</th>
-                                    <th>بازی</th>
-                                    <th>برد</th>
-                                    <th>مساوی</th>
-                                    <th>باخت</th>
-                                    <th>گل زده</th>
-                                    <th>گل خورده</th>
-                                    <th>تفاضل گل</th>
-                                </tr>
-                            </thead>
-                            <tbody style="color : white;">
-                                <php
-                                $num = 0;
-                                while ($show = mysqli_fetch_assoc($sql)) {
-                                    $num++;
-                                    echo '
-                                    <tr>
-                                        <td>'.$num.'</td>
-                                        <td>'.$show['name'].'</td>
-                                        <td>'.$show['point'].'</td>
-                                        <td>'.$show['mp'].'</td>
-                                        <td>'.$show['win'].'</td>
-                                        <td>'.$show['drow'].'</td>
-                                        <td>'.$show['lost'].'</td>
-                                        <td>'.$show['f'].'</td>
-                                        <td>'.$show['a'].'</td>
-                                        <td>'.$show['gd'].'</td>
-                                    </tr>';
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>  -->
     <div class="container-fluid py-4" style="margin-top: 50px;">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <div class="table-responsive" style="margin-bottom: 80px;">
-        <div class="gradient-table-wrapper">
-          <table class="gradient-table">
-            <thead>
-              <tr>
-                <th class="position-sticky top-0">رتبه</th>
-                <th class="position-sticky top-0">نام تیم</th>
-                <th class="position-sticky top-0 d-none d-sm-table-cell">امتیاز</th>
-                <th class="position-sticky top-0 d-none d-md-table-cell">بازی</th>
-                <th class="position-sticky top-0 d-none d-lg-table-cell">برد</th>
-                <th class="position-sticky top-0 d-none d-lg-table-cell">مساوی</th>
-                <th class="position-sticky top-0 d-none d-md-table-cell">باخت</th>
-                <th class="position-sticky top-0 d-none d-sm-table-cell">گل زده</th>
-                <th class="position-sticky top-0 d-none d-sm-table-cell">گل خورده</th>
-                <th class="position-sticky top-0 d-none d-xl-table-cell">تفاضل گل</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $num = 0;
-              while ($show = mysqli_fetch_assoc($sql)) {
-                $num++;
-                echo '
-                <tr>
-                  <td>'.$num.'</td>
-                  <td><strong>'.$show['name'].'</strong></td>
-                  <td class="d-none d-sm-table-cell">'.$show['point'].'</td>
-                  <td class="d-none d-md-table-cell">'.$show['mp'].'</td>
-                  <td class="d-none d-lg-table-cell">'.$show['win'].'</td>
-                  <td class="d-none d-lg-table-cell">'.$show['drow'].'</td>
-                  <td class="d-none d-md-table-cell">'.$show['lost'].'</td>
-                  <td class="d-none d-sm-table-cell">'.$show['f'].'</td>
-                  <td class="d-none d-sm-table-cell">'.$show['a'].'</td>
-                  <td class="d-none d-xl-table-cell">'.$show['gd'].'</td>
-                </tr>';
-              }
-              ?>
-            </tbody>
-          </table>
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="table-responsive" style="margin-bottom: 80px;">
+            <div class="gradient-table-wrapper">
+              <table class="gradient-table">
+                <thead>
+                  <tr>
+                    <th class="position-sticky top-0">رتبه</th>
+                    <th class="position-sticky top-0">نام تیم</th>
+                    <th class="position-sticky top-0 d-none d-sm-table-cell">امتیاز</th>
+                    <th class="position-sticky top-0 d-none d-md-table-cell">بازی</th>
+                    <th class="position-sticky top-0 d-none d-lg-table-cell">برد</th>
+                    <th class="position-sticky top-0 d-none d-lg-table-cell">مساوی</th>
+                    <th class="position-sticky top-0 d-none d-md-table-cell">باخت</th>
+                    <th class="position-sticky top-0 d-none d-sm-table-cell">گل زده</th>
+                    <th class="position-sticky top-0 d-none d-sm-table-cell">گل خورده</th>
+                    <th class="position-sticky top-0 d-none d-xl-table-cell">تفاضل گل</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $num = 0;
+                  while ($show = mysqli_fetch_assoc($sql)) {
+                    $num++;
+                    echo '
+                    <tr>
+                      <td>'.$num.'</td>
+                      <td><strong>'.$show['name'].'</strong></td>
+                      <td class="d-none d-sm-table-cell">'.$show['point'].'</td>
+                      <td class="d-none d-md-table-cell">'.$show['mp'].'</td>
+                      <td class="d-none d-lg-table-cell">'.$show['win'].'</td>
+                      <td class="d-none d-lg-table-cell">'.$show['drow'].'</td>
+                      <td class="d-none d-md-table-cell">'.$show['lost'].'</td>
+                      <td class="d-none d-sm-table-cell">'.$show['f'].'</td>
+                      <td class="d-none d-sm-table-cell">'.$show['a'].'</td>
+                      <td class="d-none d-xl-table-cell">'.$show['gd'].'</td>
+                    </tr>';
+                  }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
 
     <!-- // ?footer -->
@@ -149,74 +102,8 @@ $sql = mysqli_query($db , $query);
         <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
     </footer>
 
-    <!-- // ? style for table -->
-     <!-- <style>
-        @media (max-width: 768px) {
-            .table-responsive-md td:nth-child(4),
-            .table-responsive-md td:nth-child(5),
-            .table-responsive-md td:nth-child(6) {
-                display: none;
-            }
-            .table-responsive-md th:nth-child(4),
-            .table-responsive-md th:nth-child(5),
-            .table-responsive-md th:nth-child(6) {
-                display: none;
-            }
-        }
-    
-        .gradient-table-wrapper {
-        background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
-        border-radius: 10px;
-        padding: 1px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .gradient-table {
-            width: 100%;
-            background-color: transparent;
-            border-collapse: collapse;
-            color: #333;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .gradient-table thead tr {
-            /* background: linear-gradient(to right, rgba(146, 254, 157, 1), rgba(0, 200, 255, 1)); */
-            /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1)); */
-            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
-            color: white;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
-        }
-        
-        .gradient-table tbody tr {
-            /* background-color: rgba(255, 255, 255, 0.15); */
-            /* background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1)); */
-            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
-            transition: all 0.3s ease;
-        }
-        
-        .gradient-table tbody tr:nth-child(even) {
-            /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1)); */
-            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
-        }
-        
-        .gradient-table tbody tr:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-        }
-        
-        .gradient-table th, 
-        .gradient-table td {
-            padding: 12px 15px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .gradient-table th {
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-    </style>  -->
-    <style>
+  <!-- // ? style for table -->  
+  <style>
   .gradient-table-wrapper {
     background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
     border-radius: 10px;

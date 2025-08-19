@@ -1,17 +1,53 @@
-.login{
+/* ! //////////////////////////////////////////////////////////////////////////////////////// */
+/* === فونت Vazirmatn === */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('font/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('font/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === بدنه اصلی === */
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background-image: url('img/back.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; /* بهتر از contain برای بک‌گراند */
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  direction: rtl; /* برای فارسی */
+}
+
+/* فرم لاگین */
+.login {
   position: absolute;
   top: 20%;
   left: 50%;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
   margin-top: 200px;
   background-color: rgba(20, 100, 100, 0.664);
-  color: rgb(255, 255, 255);
+  color: #fff;
   width: 300px;
   border-radius: 30px;
   text-align: center;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.but{
+/* دکمه‌ها */
+.but {
   border-radius: 10px;
   background-color: rgb(16, 219, 219);
   width: 70px;
@@ -19,72 +55,66 @@
   border: none;
   outline: none;
   margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.footer{
+.but:hover {
+  background-color: rgb(0, 180, 180);
+  transform: scale(1.05);
+}
+
+/* فوتر */
+.footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);
-  color: rgb(0, 0, 0);
+  background: linear-gradient(135deg, #92fe9d 0%, #00c9ff 100%);
+  color: #000;
   text-align: center;
   padding: 10px;
-  margin-top: 500px;
 }
 
-.text-footer{
-  color: rgb(0, 0, 0); 
+.text-footer {
+  color: #000;
   padding-top: 15px;
 }
 
-.footer-link{
-  text-decoration: none; 
-  color: rgb(0, 0, 0);
+.footer-link {
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
 }
 
-.footer-link:hover{
-  background-color: rgb(0, 0, 0);
-  color : rgb(255, 255, 255);
+.footer-link:hover {
+  background-color: #000;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
 }
 
-.body {
-  background-image: url('img/back.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: contain; /* یا cover بسته به نیاز شما */
-  background-attachment: fixed; /* اختیاری - برای ثابت ماندن پس‌زمینه */
-  /* برای پشتیبانی از مرورگرهای مختلف */
-  height: 100vh;
-  width: 100%;
+/* عکس‌ها */
+.img {
+  opacity: 0.9;
 }
 
-.img{
-  opacity: 0.90;
+/* کارت‌ها */
+.cart {
+  background: linear-gradient(135deg, #00c8ff86 0%, #92fe9d71 100%);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
 }
 
-.cart{
-  background: linear-gradient(135deg,#00c8ff86  0% ,#92fe9d71  100%);
+.cart:hover {
+  transform: translateY(-5px);
 }
 
-.cart-back1{
-  background-color:rgba(255, 255, 255, 0) ;
+.cart-back1 {
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.cart-back{
-  background-color:rgba(255, 255, 255, 0.356) ;
+.cart-back {
+  background-color: rgba(255, 255, 255, 0.356);
 }
-
-/* ! 
- .box-name{
-          position: absolute;
-          top: 15%;
-          left: 50%;
-          transform: translate(-50% , -50%);
-          text-align: center;
-          margin-bottom: 50px;
-          padding-bottom: 50px;
-          width: 65%;
-          height: 50px;
-          background: linear-gradient(to right, #121212, #d4af37);
-          color: white;
-    } */

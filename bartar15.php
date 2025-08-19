@@ -41,7 +41,7 @@ $sql = mysqli_query($db , $query);
     </nav>
 
     <div class="box-name">
-      <h4>لیگ برتر زیر 15 سال</h4>
+        <h4>لیگ برتر زیر ۱۵ سال</h4>
     </div>
     
     <!-- // ? table -->
