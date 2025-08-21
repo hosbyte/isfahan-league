@@ -10,7 +10,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
 }
 
 // ? database conection
-$query = ("SELECT * FROM `bartar13` ORDER BY point DESC , gd DESC");
+$query = ("SELECT * FROM `bartar13` ORDER BY point DESC , gd DESC, name ASC");
 $sql =mysqli_query($db , $query);
 
 ?>
@@ -134,7 +134,7 @@ $sql =mysqli_query($db , $query);
         <!-- // ? button for download -->
         <button id="downloadTable" class="btn btn-success" 
             style="display: block; margin: 20px auto; padding: 10px 20px; 
-            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));">
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));">
             <i class="bi bi-download"></i> دانلود جدول به صورت عکس
         </button>
         
@@ -209,7 +209,7 @@ $sql =mysqli_query($db , $query);
                 padding: 15px 25px;
                 max-width: 600px;
                 width: 90%;
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
                 color: white;
                 text-align: center;
                 border-radius: 12px;
@@ -250,19 +250,19 @@ $sql =mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
                 color: white;
             }
             
             .gradient-table tbody tr {
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
                 color: white;
                 transition: all 0.3s ease;
             }
             
             .gradient-table tbody tr:nth-child(even) {
                 color: white;
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
             }
             
             .gradient-table th, 

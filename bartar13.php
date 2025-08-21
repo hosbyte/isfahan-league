@@ -3,7 +3,7 @@ include 'db.php';
 session_start();
 
 // ? database conecttion
-$query = ("SELECT * FROM `bartar13` ORDER BY point DESC , gd DESC ");
+$query = ("SELECT * FROM `bartar13` ORDER BY point DESC , gd DESC, name ASC ");
 $sql = mysqli_query($db , $query);
 
 
@@ -133,7 +133,7 @@ $sql = mysqli_query($db , $query);
             padding: 15px 25px;
             max-width: 600px;
             width: 90%;
-            background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
             color: white;
             text-align: center;
             border-radius: 12px;
@@ -177,21 +177,21 @@ $sql = mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
                 color: white;
                 text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
             }
             
             .gradient-table tbody tr {
                 /* background: linear-gradient(to right, #d4af37, #121212); */
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
                 color: white;
                 transition: all 0.3s ease;
             }
             
             .gradient-table tbody tr:nth-child(even) {
                 color: white;
-                background: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(0, 0, 0, 1));
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
             }
             
             

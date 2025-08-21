@@ -10,7 +10,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
 }
 
 // ? database conection
-$query = ("SELECT * FROM `bartar15` ORDER BY point DESC , gd DESC, name ASC");
+$query = ("SELECT * FROM `bartar14` ORDER BY point DESC , gd DESC, name ASC ");
 $sql =mysqli_query($db , $query);
 
 ?>
@@ -68,7 +68,7 @@ $sql =mysqli_query($db , $query);
         <div id="leagueTable">
             <!-- // ? box for show name -->
             <div class="box-name">
-                <h4>لیگ برتر زیر ۱۵ سال</h4>
+                <h4>لیگ برتر زیر ١٤ سال</h4>
             </div>
             
             <!-- // ? table -->
@@ -133,7 +133,7 @@ $sql =mysqli_query($db , $query);
         <!-- // ? button for download -->
         <button id="downloadTable" class="btn btn-success" 
             style="display: block; margin: 20px auto; padding: 10px 20px; 
-            background: linear-gradient(to right, #121212, #d4af37);">
+            background: linear-gradient(to right, #121212, #24e454ff);">
             <i class="bi bi-download"></i> دانلود جدول به صورت عکس
         </button>
         
@@ -208,7 +208,7 @@ $sql =mysqli_query($db , $query);
                     padding: 15px 25px;
                     max-width: 600px;
                     width: 90%;
-                    background: linear-gradient(to right, #121212, #d4af37);
+                    background: linear-gradient(to right, #121212, #24e454ff);
                     color: white;
                     text-align: center;
                     border-radius: 12px;
@@ -249,19 +249,19 @@ $sql =mysqli_query($db , $query);
                 }
                 
                 .gradient-table thead tr {
-                    background: linear-gradient(to right, #121212, #d4af37);;
+                    background: linear-gradient(to right, #121212, #24e454ff);;
                     color: white;
                 }
                 
                 .gradient-table tbody tr {
-                    background: linear-gradient(to right, #121212, #d4af37);
+                    background: linear-gradient(to right, #121212, #24e454ff);
                     color: white;
                     transition: all 0.3s ease;
                 }
                 
                 .gradient-table tbody tr:nth-child(even) {
                     color: white;
-                    background: linear-gradient(to right, #121212, #d4af37);
+                    background: linear-gradient(to right, #121212, #24e454ff);
                 }
                 
                 .gradient-table th, 

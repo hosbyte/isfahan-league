@@ -60,6 +60,16 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     </div>
                 </div>
             </div>
+            <!-- // ? bartar 14 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 14 سال</h5>
+                        <p class="card-text">لیگ برتر</p>
+                        <a href="bartar14a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
             <!-- // ? bartar  13 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
@@ -67,46 +77,6 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                         <h5 class="card-title">زیر 13 سال</h5>
                         <p class="card-text">لیگ برتر</p>
                         <a href="bartar13a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- // ? zire  17 -->
-            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
-                <div class="cart-back card">
-                    <div class="cart-back cart card-body">
-                        <h5 class="card-title">زیر 17 سال</h5>
-                        <p class="card-text">لیگ دسته دو</p>
-                        <a href="d2z17a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- // ? zire  15 -->
-            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
-                <div class="cart-back card">
-                    <div class="cart-back cart card-body">
-                        <h5 class="card-title">زیر 15 سال</h5>
-                        <p class="card-text">لیگ دسته دو</p>
-                        <a href="d2z15a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
-                    </div>
-                </div>
-            </div> 
-            <!-- // ? zire  14 -->
-            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
-                <div class="cart-back card"> 
-                    <div class="cart-back cart card-body">
-                        <h5 class="card-title">زیر 14 سال</h5>
-                        <p class="card-text">لیگ دسته دو</p>
-                        <a href="d2z14a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
-                    </div>
-                </div>
-            </div> 
-            <!-- // ? zire  13 -->
-            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px; padding-bottom: 20px;">
-                <div class="cart-back card">
-                    <div class="cart-back cart card-body">
-                        <h5 class="card-title">زیر 13 سال</h5>
-                        <p class="card-text">لیگ دسته دو</p>
-                        <a href="d2z13a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
