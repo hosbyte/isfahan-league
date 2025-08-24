@@ -76,7 +76,7 @@ $sql =mysqli_query($db , $query);
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table" style="color : black;">
+                            <table class="gradient-table-wrapper gradient-table " style="color : black; font-size: 18px;font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
                                         <th scope="col">رتبه</th>
@@ -183,13 +183,13 @@ $sql =mysqli_query($db , $query);
 
         <!-- // ? style for table -->
         <style>
-                /* اضافه کردن استایل برای اطمینان از نمایش صحیح فونت */
-                body, table, th, td {
+            /* اضافه کردن استایل برای اطمینان از نمایش صحیح فونت */
+            body, table, th, td {
                     font-family: Vazirmatn, sans-serif !important;
-                }
+            }
                 
-                /* استایل‌های قبلی شما */
-                @media (max-width: 768px) {
+            /* استایل‌های قبلی شما */
+            @media (max-width: 768px) {
                     .table-responsive-md td:nth-child(4),
                     .table-responsive-md td:nth-child(5),
                     .table-responsive-md td:nth-child(6) {
@@ -200,9 +200,9 @@ $sql =mysqli_query($db , $query);
                     .table-responsive-md th:nth-child(6) {
                         display: none;
                     }
-                }
+            }
 
-                .box-name {
+            .box-name {
                     position: relative;
                     margin: 40px auto;
                     padding: 15px 25px;
@@ -214,15 +214,15 @@ $sql =mysqli_query($db , $query);
                     border-radius: 12px;
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
                     font-family: Vazirmatn, sans-serif;
-                }
+            }
 
-                .box-name h4 {
+            .box-name h4 {
                     margin: 0;
                     font-size: 1.4rem;
                     font-weight: bold;
-                }
+            }
 
-                @media (max-width: 480px) {
+            @media (max-width: 480px) {
                     .box-name {
                         padding: 12px 18px;
                         font-size: 1rem;
@@ -230,51 +230,53 @@ $sql =mysqli_query($db , $query);
                     .box-name h4 {
                         font-size: 1.2rem;
                     }
-                }
+            }
 
-                .gradient-table-wrapper {
+            .gradient-table-wrapper {
                     background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
                     border-radius: 10px;
                     padding: 1px;
                     overflow: hidden;
                     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-                }
+            }
                 
-                .gradient-table {
+            .gradient-table {
                     width: 100%;
                     background-color: transparent;
                     border-collapse: collapse;
                     color: #333;
                     font-family: Vazirmatn, sans-serif;
-                }
+            }
                 
-                .gradient-table thead tr {
+            .gradient-table thead tr {
                     background: linear-gradient(to right, #121212, #d4af37);;
                     color: white;
-                }
+            }
                 
-                .gradient-table tbody tr {
+            .gradient-table tbody tr {
                     background: linear-gradient(to right, #121212, #d4af37);
                     color: white;
                     transition: all 0.3s ease;
-                }
+                    padding: 15px 10px;
+                    line-height: 4;
+            }
                 
-                .gradient-table tbody tr:nth-child(even) {
+            .gradient-table tbody tr:nth-child(even) {
                     color: white;
                     background: linear-gradient(to right, #121212, #d4af37);
-                }
+            }
                 
-                .gradient-table th, 
-                .gradient-table td {
+            .gradient-table th, 
+            .gradient-table td {
                     padding: 12px 15px;
                     text-align: center;
                     border: 1px solid rgba(255, 255, 255, 0.1);
                     font-family: Vazirmatn, sans-serif;
-                }
+            }
                 
-                .gradient-table th {
+            .gradient-table th {
                     font-weight: 600;
-                }
-            </style>
+            }
+        </style>
     </body>
 </html>
