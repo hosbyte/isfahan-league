@@ -257,8 +257,9 @@ $sql =mysqli_query($db , $query);
             .gradient-table tbody tr {
                 background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 0, 0, 1));
                 color: white;
-                transition: all 0.3s ease;padding: 15px 10px;
-                line-height: 4;
+                transition: all 0.3s ease;
+                padding: 13px 10px;
+                line-height: 3;
             }
             
             .gradient-table tbody tr:nth-child(even) {

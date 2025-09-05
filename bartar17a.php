@@ -10,13 +10,13 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
 }
 
 // ? database conection
-$query = ("SELECT * FROM `bartar15` ORDER BY point DESC , gd DESC, name ASC");
+$query = ("SELECT * FROM `bartar17` ORDER BY point DESC , gd DESC, name ASC");
 $sql =mysqli_query($db , $query);
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="fa" dir="rtl">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +38,7 @@ $sql =mysqli_query($db , $query);
         <title>isfahan league</title>
     </head>
     <body class="body">
-    
+        
         <!-- // ? navbar -->
         <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
             <div class="container-fluid">
@@ -65,18 +65,19 @@ $sql =mysqli_query($db , $query);
             </div>
         </nav>
         
+        <!-- // ? for photo -->
         <div id="leagueTable">
-            <!-- // ? box for show name -->
+            <!-- // ? box for show table name -->
             <div class="box-name">
-                <h4>لیگ برتر زیر ۱۵ سال</h4>
+            <h4>لیگ برتر زیر ١٧ سال</h4>
             </div>
-            
+
             <!-- // ? table -->
             <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table " style="color : black; font-size: 18px;font-weight: bold;">
+                            <table class="gradient-table-wrapper gradient-table" style="color : black; font-size: 18px;font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
                                         <th scope="col">رتبه</th>
@@ -133,7 +134,7 @@ $sql =mysqli_query($db , $query);
         <!-- // ? button for download -->
         <button id="downloadTable" class="btn btn-success" 
             style="display: block; margin: 20px auto; padding: 10px 20px; 
-            background: linear-gradient(to right, #121212, #d4af37);">
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 136, 1, 1));">
             <i class="bi bi-download"></i> دانلود جدول به صورت عکس
         </button>
         
@@ -143,8 +144,8 @@ $sql =mysqli_query($db , $query);
         <footer class="footer">
             <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
         </footer>
-        
-        <!-- // ? download photo script -->
+
+        <!-- // ? script for photo download -->
         <script>
             $(document).ready(function(){
                 $("#downloadTable").click(function(){
@@ -185,97 +186,97 @@ $sql =mysqli_query($db , $query);
         <style>
             /* اضافه کردن استایل برای اطمینان از نمایش صحیح فونت */
             body, table, th, td {
-                    font-family: Vazirmatn, sans-serif !important;
+                font-family: Vazirmatn, sans-serif !important;
             }
-                
+            
             /* استایل‌های قبلی شما */
             @media (max-width: 768px) {
-                    .table-responsive-md td:nth-child(4),
-                    .table-responsive-md td:nth-child(5),
-                    .table-responsive-md td:nth-child(6) {
-                        display: none;
-                    }
-                    .table-responsive-md th:nth-child(4),
-                    .table-responsive-md th:nth-child(5),
-                    .table-responsive-md th:nth-child(6) {
-                        display: none;
-                    }
+                .table-responsive-md td:nth-child(4),
+                .table-responsive-md td:nth-child(5),
+                .table-responsive-md td:nth-child(6) {
+                    display: none;
+                }
+                .table-responsive-md th:nth-child(4),
+                .table-responsive-md th:nth-child(5),
+                .table-responsive-md th:nth-child(6) {
+                    display: none;
+                }
             }
 
             .box-name {
-                    position: relative;
-                    margin: 40px auto;
-                    padding: 15px 25px;
-                    max-width: 600px;
-                    width: 90%;
-                    background: linear-gradient(to right, #121212, #d4af37);
-                    color: white;
-                    text-align: center;
-                    border-radius: 12px;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-                    font-family: Vazirmatn, sans-serif;
+                position: relative;
+                margin: 40px auto;
+                padding: 15px 25px;
+                max-width: 600px;
+                width: 90%;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 136, 1, 1));
+                color: white;
+                text-align: center;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                font-family: Vazirmatn, sans-serif;
             }
 
             .box-name h4 {
-                    margin: 0;
-                    font-size: 1.4rem;
-                    font-weight: bold;
+                margin: 0;
+                font-size: 1.4rem;
+                font-weight: bold;
             }
 
             @media (max-width: 480px) {
-                    .box-name {
-                        padding: 12px 18px;
-                        font-size: 1rem;
-                    }
-                    .box-name h4 {
-                        font-size: 1.2rem;
-                    }
+                .box-name {
+                    padding: 12px 18px;
+                    font-size: 1rem;
+                }
+                .box-name h4 {
+                    font-size: 1.2rem;
+                }
             }
 
             .gradient-table-wrapper {
-                    background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
-                    border-radius: 10px;
-                    padding: 1px;
-                    overflow: hidden;
-                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                background: linear-gradient(to bottom, #00c8ff86, #92fe9d71);
+                border-radius: 10px;
+                padding: 1px;
+                overflow: hidden;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             }
-                
+            
             .gradient-table {
-                    width: 100%;
-                    background-color: transparent;
-                    border-collapse: collapse;
-                    color: #333;
-                    font-family: Vazirmatn, sans-serif;
+                width: 100%;
+                background-color: transparent;
+                border-collapse: collapse;
+                color: #333;
+                font-family: Vazirmatn, sans-serif;
             }
-                
+            
             .gradient-table thead tr {
-                    background: linear-gradient(to right, #121212, #d4af37);;
-                    color: white;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 136, 1, 1));
+                color: white;
             }
-                
+            
             .gradient-table tbody tr {
-                    background: linear-gradient(to right, #121212, #d4af37);
-                    color: white;
-                    transition: all 0.3s ease;
-                    padding: 13px 10px;
-                    line-height: 3;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 136, 1, 1));
+                color: white;
+                transition: all 0.3s ease;
+                padding: 13px 10px;
+                line-height: 3;
             }
-                
+            
             .gradient-table tbody tr:nth-child(even) {
-                    color: white;
-                    background: linear-gradient(to right, #121212, #d4af37);
+                color: white;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 136, 1, 1));
             }
-                
+            
             .gradient-table th, 
             .gradient-table td {
-                    padding: 12px 15px;
-                    text-align: center;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                    font-family: Vazirmatn, sans-serif;
+                padding: 12px 15px;
+                text-align: center;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                font-family: Vazirmatn, sans-serif;
             }
-                
+            
             .gradient-table th {
-                    font-weight: 600;
+                font-weight: 600;
             }
         </style>
     </body>

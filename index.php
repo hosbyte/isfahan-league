@@ -1,13 +1,13 @@
 <?php
-include 'db.php';
-session_start();
+    include 'db.php';
+    session_start();
 
-// ? admin check
-if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['username'] === 'majid')
-{
-    header('Location: admin.php');
-    exit();
-}
+    // ? admin check
+    if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['username'] === 'majid')
+    {
+        header('Location: admin.php');
+        exit();
+    }
 
 ?>
 
@@ -26,7 +26,7 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['usern
     </head>
     <body class="body">
         <!-- // ? navbar -->
-        <!-- <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
+        <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
             <div class="container-fluid">
                 <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">اصفهان لیگ </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,26 +40,20 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['usern
                     </ul>
                 </div>
             </div>
-        </nav> -->
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #92fe9d 0%, #00c9ff 100%);">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold" href="#">اصفهان لیگ</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto"> <!-- استفاده از ms-auto برای چپ‌چین کردن -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">ورود</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </nav>
         
         <!-- // ? card show -->
         <div class="row" style="text-align: center;">
+            <!-- // ? bartar  19 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 19 سال</h5>
+                        <p class="card-text">لیگ برتر</p>
+                        <a href="bartar19.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
             <!-- // ? bartar  18 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
@@ -67,6 +61,16 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['usern
                         <h5 class="card-title">زیر 18 سال</h5>
                         <p class="card-text">لیگ برتر</p>
                         <a href="bartar18.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- // ? bartar  17 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 17 سال</h5>
+                        <p class="card-text">لیگ برتر</p>
+                        <a href="bartar17.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -103,19 +107,10 @@ if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin' && $_SESSION['usern
         </div>
     
         <!-- // ?footer -->
-        <!-- <footer class="footer">
+        <footer class="footer">
             <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
-        </footer> -->
-        <footer class="footer mt-5 py-3">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <p class="text-footer mb-0">Create By <a class="footer-link fw-bold" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
-                    </div>
-                </div>
-            </div>
         </footer>
-
+       
         <!-- // ? empty div -->
         <div style="height: 100px;"></div>
 
