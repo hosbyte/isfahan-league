@@ -9,11 +9,12 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('#register').on('submit' , function(e) {
         e.preventDefault();
-        const team_id = $('#dropdown').val();
-        const gf = $('#gf').val();
-        const ga = $('#ga').val();
+        const team1_id = $('#dropdown1').val();
+        const team2_id = $('#dropdown2').val(); 
+        const gt1 = $('#gt1').val();
+        const gt2 = $('#gt2').val();
 
-        if(!team_id || !gf || !ga){
+        if(!team1_id || !gt1 || !gt2 || !team2_id){
             alert("لطفاً تمام فیلدها را پر کنید.");
             return;
         }
@@ -22,9 +23,10 @@ $(document).ready(function () {
             url : 'register.php',
             method : 'POST',
             data :{
-                team_id : $('#dropdown').val(),
-                gf : $('#gf').val(),
-                ga : $('#ga').val()
+                team1_id : $('#dropdown1').val(),
+                team2_id : $('#dropdown2').val(),
+                gt1 : $('#gt1').val(),
+                gt2 : $('#gt2').val()
             },
             success : function(reg){
                 reg = reg.trim();

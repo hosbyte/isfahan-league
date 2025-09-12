@@ -3,11 +3,11 @@ include 'db.php';
 session_start();
 
 // ? check admin
-if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
-{
-    header('Location: login.php');
-    exit();
-}
+// if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
+// {
+//     header('Location: login.php');
+//     exit();
+// }
 
 
 // ? database conection

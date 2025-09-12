@@ -186,3 +186,8 @@ body {
 .table-size td{
   height: 100px;
 }
+
+/* انتخاب تیم صفحه ثبت */
+.team-reg{
+  width: 100%;
+}

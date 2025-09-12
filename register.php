@@ -15,19 +15,31 @@ if(!isset($_SESSION['role']) && $_SESSION['role'] !== 'admin')
 // * create table variable 
 $table = null;
 // * create teams register variable
-$team_id = null;
-$gf =null;
-$ga =null;
+$team1_id = null;
+$team2_id = null;
+$gt1 =null;
+$gt2 =null;
 $gd = null;
-$db_gf = null;
-$db_ga = null;
-$db_gd = null;
-$db_win = null;
-$db_drow = null;
-$db_lost = null;
-$db_mp = null;
-$db_point = null;
-$save_query =null;
+$db_gf1 = null;
+$db_gf2 = null;
+$db_ga1 = null;
+$db_ga2 = null;
+$db_gd1 = null;
+$db_gd2 = null;
+$db_win1 = null;
+$db_win2 = null;
+$db_drow1 = null;
+$db_drow2 = null;
+$db_lost1 = null;
+$db_lost2 = null;
+$db_mp1 = null;
+$db_mp2 = null;
+$db_point1 = null;
+$db_point2 = null;
+$save_query1 =null;
+$save_query2 =null;
+$save_sql1 = null;
+$save_sql2 = null;
 // * create database read variable
 $show_query = null;
 $show_sql = null;
@@ -39,7 +51,7 @@ if(isset($_POST['table']) && !empty($_POST['table'])) {
     $table = $_POST['table'];
     
     // اعتبارسنجی نام جدول
-    $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19'];
+    $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19', 'd2z17'];
     if(!in_array($table, $allowed_tables)) {
         die("0"); // جدول نامعتبر
     }
@@ -62,59 +74,181 @@ if(isset($_POST['table']) && !empty($_POST['table'])) {
 }
 
 // ? register
-if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_POST['gf']) && isset($_POST['ga']))
-{   
-    
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team1_id']) &&  isset($_POST['team2_id']) && isset($_POST['gt1']) && isset($_POST['gt2']))
+{      
     $table = $_SESSION['table'] ?? null;
-    //var_dump($table);
-    $team_id = intval($_POST['team_id']);
-    $gf = intval($_POST['gf']);
-    $ga = intval($_POST['ga']);
+    $team1_id = intval($_POST['team1_id']);
+    $team2_id = intval($_POST['team2_id']);
+    $gt1 = intval($_POST['gt1']);
+    $gt2 = intval($_POST['gt2']);
 
-    if($_SESSION['role'] === 'admin')
+    // ! team 1 winner
+    if($gt1 > $gt2)
     {
-        $read_query = ("SELECT * FROM `$table` WHERE `id` = '$team_id'");
-        $read_sql = mysqli_query($db , $read_query);
-        while($read = mysqli_fetch_assoc($read_sql))
+        $read1_query = ("SELECT * FROM `$table` WHERE `id` = '$team1_id'");
+        $read1_sql = mysqli_query($db , $read1_query);
+        while($read = mysqli_fetch_assoc($read1_sql))
         {
-            $db_point = $read['point'];
-            $db_mp = $read['mp'];
-            $db_win = $read['win'];
-            $db_drow = $read['drow'];
-            $db_lost = $read['lost'];
-            $db_gf = $read['f'];
-            $db_ga = $read['a'];
-            $db_gd = $read['gd'];
+            $db_point1 = $read['point'];
+            $db_mp1 = $read['mp'];
+            $db_win1 = $read['win'];
+            $db_drow1 = $read['drow'];
+            $db_lost1 = $read['lost'];
+            $db_gf1 = $read['f'];
+            $db_ga1 = $read['a'];
+            $db_gd1 = $read['gd'];
         }
+        $db_gf1 = $db_gf1 + $gt1;
+        $db_ga1 = $db_ga1 + $gt2;
+        $db_gd1 = $db_gf1 - $db_ga1;
 
-        $db_gf = $db_gf + $gf;
-        $db_ga = $db_ga + $ga;
-        $db_gd = $db_gf - $db_ga;
+        $db_win1++;
+        $db_point1 = $db_point1 + 3;
 
-        if($gf > $ga)
-        {
-            $db_win++;
-            $db_point = $db_point + 3;
-        }
-        else if($gf == $ga)
-        {
-            $db_drow++;
-            $db_point++;
-        }
-        else
-        {
-            $db_lost++;
-        }
+        $db_mp1++;
+        $save_query1 = ("UPDATE `$table` SET `point` = '$db_point1' , `mp` = '$db_mp1' , `win` = '$db_win1' , `drow` = '$db_drow1' 
+            ,`lost` = '$db_lost1' ,`f` = '$db_gf1' , `a` = '$db_ga1' , `gd` = '$db_gd1' WHERE `id` = '$team1_id'");
+        $save_sql1 = mysqli_query($db , $save_query1);
 
-        $db_mp++;
-        $save_query = ("UPDATE `$table` SET `point` = '$db_point' , `mp` = '$db_mp' , `win` = '$db_win' , `drow` = '$db_drow' 
-        ,`lost` = '$db_lost' ,`f` = '$db_gf' , `a` = '$db_ga' , `gd` = '$db_gd' WHERE `id` = '$team_id'");
-        $save_sql = mysqli_query($db , $save_query);
+        // ! team 2
+
+        $read2_query = ("SELECT * FROM `$table` WHERE `id` = '$team2_id'");
+        $read2_sql = mysqli_query($db , $read2_query);
+        while($read = mysqli_fetch_assoc($read2_sql))
+        {
+            $db_point2 = $read['point'];
+            $db_mp2 = $read['mp'];
+            $db_win2 = $read['win'];
+            $db_drow2 = $read['drow'];
+            $db_lost2 = $read['lost'];
+            $db_gf2 = $read['f'];
+            $db_ga2 = $read['a'];
+            $db_gd2 = $read['gd'];
+        }
+        $db_gf2 = $db_gf2 + $gt2;
+        $db_ga2 = $db_ga2 + $gt1;
+        $db_gd2 = $db_gf2 - $db_ga2;
+
+        $db_lost2++; 
+
+        $db_mp2++;
+        $save_query2 = ("UPDATE `$table` SET `point` = '$db_point2' , `mp` = '$db_mp2' , `win` = '$db_win2' , `drow` = '$db_drow2' 
+            ,`lost` = '$db_lost2' ,`f` = '$db_gf2' , `a` = '$db_ga2' , `gd` = '$db_gd2' WHERE `id` = '$team2_id'");
+        $save_sql2 = mysqli_query($db , $save_query2);
     }
-    echo "1";
+
+    // ! team 2 winner
+    elseif($gt1 < $gt2)
+    {
+        $read1_query = ("SELECT * FROM `$table` WHERE `id` = '$team2_id'");
+        $read1_sql = mysqli_query($db , $read1_query);
+        while($read = mysqli_fetch_assoc($read1_sql))
+        {
+            $db_point1 = $read['point'];
+            $db_mp1 = $read['mp'];
+            $db_win1 = $read['win'];
+            $db_drow1 = $read['drow'];
+            $db_lost1 = $read['lost'];
+            $db_gf1 = $read['f'];
+            $db_ga1 = $read['a'];
+            $db_gd1 = $read['gd'];
+        }
+        $db_gf1 = $db_gf1 + $gt2;
+        $db_ga1 = $db_ga1 + $gt1;
+        $db_gd1 = $db_gf1 - $db_ga1;
+
+        $db_win1++;
+        $db_point1 = $db_point1 + 3;
+
+        $db_mp1++;
+        $save_query1 = ("UPDATE `$table` SET `point` = '$db_point1' , `mp` = '$db_mp1' , `win` = '$db_win1' , `drow` = '$db_drow1' 
+            ,`lost` = '$db_lost1' ,`f` = '$db_gf1' , `a` = '$db_ga1' , `gd` = '$db_gd1' WHERE `id` = '$team2_id'");
+        $save_sql1 = mysqli_query($db , $save_query1);
+
+        // ! team 2
+
+        $read2_query = ("SELECT * FROM `$table` WHERE `id` = '$team1_id'");
+        $read2_sql = mysqli_query($db , $read2_query);
+        while($read = mysqli_fetch_assoc($read2_sql))
+        {
+            $db_point2 = $read['point'];
+            $db_mp2 = $read['mp'];
+            $db_win2 = $read['win'];
+            $db_drow2 = $read['drow'];
+            $db_lost2 = $read['lost'];
+            $db_gf2 = $read['f'];
+            $db_ga2 = $read['a'];
+            $db_gd2 = $read['gd'];
+        }
+        $db_gf2 = $db_gf2 + $gt1;
+        $db_ga2 = $db_ga2 + $gt2;
+        $db_gd2 = $db_gf2 - $db_ga2;
+
+        $db_lost2++; 
+
+        $db_mp2++;
+        $save_query2 = ("UPDATE `$table` SET `point` = '$db_point2' , `mp` = '$db_mp2' , `win` = '$db_win2' , `drow` = '$db_drow2' 
+            ,`lost` = '$db_lost2' ,`f` = '$db_gf2' , `a` = '$db_ga2' , `gd` = '$db_gd2' WHERE `id` = '$team1_id'");
+        $save_sql2 = mysqli_query($db , $save_query2);
+    }
+
+    // ! draw
+    elseif($gt1 == $gt2)
+    {
+        $read1_query = ("SELECT * FROM `$table` WHERE `id` = '$team2_id'");
+        $read1_sql = mysqli_query($db , $read1_query);
+        while($read = mysqli_fetch_assoc($read1_sql))
+        {
+            $db_point1 = $read['point'];
+            $db_mp1 = $read['mp'];
+            $db_win1 = $read['win'];
+            $db_drow1 = $read['drow'];
+            $db_lost1 = $read['lost'];
+            $db_gf1 = $read['f'];
+            $db_ga1 = $read['a'];
+            $db_gd1 = $read['gd'];
+        }
+        $db_gf1 = $db_gf1 + $gt2;
+        $db_ga1 = $db_ga1 + $gt1;
+        $db_gd1 = $db_gf1 - $db_ga1;
+
+        $db_drow1++;
+        $db_point1 = $db_point1 + 3;
+
+        $db_mp1++;
+        $save_query1 = ("UPDATE `$table` SET `point` = '$db_point1' , `mp` = '$db_mp1' , `win` = '$db_win1' , `drow` = '$db_drow1' 
+            ,`lost` = '$db_lost1' ,`f` = '$db_gf1' , `a` = '$db_ga1' , `gd` = '$db_gd1' WHERE `id` = '$team2_id'");
+        $save_sql1 = mysqli_query($db , $save_query1);
+
+        // ! team 2
+
+        $read2_query = ("SELECT * FROM `$table` WHERE `id` = '$team1_id'");
+        $read2_sql = mysqli_query($db , $read2_query);
+        while($read = mysqli_fetch_assoc($read2_sql))
+        {
+            $db_point2 = $read['point'];
+            $db_mp2 = $read['mp'];
+            $db_win2 = $read['win'];
+            $db_drow2 = $read['drow'];
+            $db_lost2 = $read['lost'];
+            $db_gf2 = $read['f'];
+            $db_ga2 = $read['a'];
+            $db_gd2 = $read['gd'];
+        }
+        $db_gf2 = $db_gf2 + $gt1;
+        $db_ga2 = $db_ga2 + $gt2;
+        $db_gd2 = $db_gf2 - $db_ga2;
+
+        $db_drow2++; 
+
+        $db_mp2++;
+        $save_query2 = ("UPDATE `$table` SET `point` = '$db_point2' , `mp` = '$db_mp2' , `win` = '$db_win2' , `drow` = '$db_drow2' 
+            ,`lost` = '$db_lost2' ,`f` = '$db_gf2' , `a` = '$db_ga2' , `gd` = '$db_gd2' WHERE `id` = '$team1_id'");
+        $save_sql2 = mysqli_query($db , $save_query2);
+    }
+    echo"1";
     exit();
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -172,6 +306,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                                 <option value="bartar15" >زیر 15 سال لیگ برتر</option>
                                 <option value="bartar14" >زیر 14 سال لیگ برتر</option>
                                 <option value="bartar13" >زیر 13 سال لیگ برتر</option>
+                                <option value="d2z17" >test</option>
                             </select>
                             <br>
                             <div class="text-center mt-4">
@@ -190,28 +325,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team_id']) && isset($_P
                          class="bg-info bg-opacity-10 p-3 p-md-5 rounded-3 shadow"
                          style="background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);">
                             <div class="mb-4">
-                                <label for="dropdown" class="form-label fw-bold">نام تیم مورد نظر را انتخاب کنید</label>
-                                <select id="dropdown" class="form-select form-select-lg">
-                                    <option value="">انتخاب کنید</option>
-                                    <?php
-                                        if(!empty($_SESSION['teams_data'])) {
-                                            foreach($_SESSION['teams_data'] as $team) {
-                                                echo '<option value="'.htmlspecialchars($team['id']).'">'
-                                                    .htmlspecialchars($team['name']).
-                                                    '</option>';
-                                            }
-                                        }
-                                    ?>
-                                </select>
+                                <center>
+                                    <label for="dropdown" class="form-label fw-bold">نام تیم مورد نظر را انتخاب کنید</label>
+                                </center>
+                                <div class="row align-items-center g-3">
+                                    <div class="col-md-6">
+                                        <select id="dropdown1" class="team-reg form-select form-select-lg">
+                                            <option value="">انتخاب کنید</option>
+                                            <?php
+                                                if(!empty($_SESSION['teams_data'])) {
+                                                    foreach($_SESSION['teams_data'] as $team) {
+                                                        echo '<option value="'.htmlspecialchars($team['id']).'">'
+                                                            .htmlspecialchars($team['name']).
+                                                            '</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="dropdown2" class="team-reg form-select form-select-lg">
+                                            <option value="">انتخاب کنید</option>
+                                            <?php
+                                                if(!empty($_SESSION['teams_data'])) {
+                                                    foreach($_SESSION['teams_data'] as $team) {
+                                                        echo '<option value="'.htmlspecialchars($team['id']).'">'
+                                                            .htmlspecialchars($team['name']).
+                                                            '</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
                                 <br>
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">
-                                        <label for="gf" class="form-label fw-bold">گل زده</label>
-                                        <input id="gf" name="gf" type="number" class="form-control form-control-lg">
+                                        <label for="gt1" class="form-label fw-bold">گل زده تیم اول</label>
+                                        <input id="gt1" name="gf" type="number" class="form-control form-control-lg">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="ga" class="form-label fw-bold">گل خورده</label>
-                                        <input id="ga" name="ga" type="number" class="form-control form-control-lg">
+                                        <label for="gt2" class="form-label fw-bold">گل زده تیم دوم</label>
+                                        <input id="gt2" name="ga" type="number" class="form-control form-control-lg">
                                     </div>
                                 </div>
                             </div>
