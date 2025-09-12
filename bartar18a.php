@@ -77,7 +77,7 @@ $sql =mysqli_query($db , $query);
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table" style="color : black; font-size: 18px;font-weight: bold;">
+                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 18px;font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
                                         <th scope="col">رتبه</th>
