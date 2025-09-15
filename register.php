@@ -213,7 +213,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team1_id']) &&  isset($
         $db_gd1 = $db_gf1 - $db_ga1;
 
         $db_drow1++;
-        $db_point1 = $db_point1 + 3;
+        $db_point1++;
 
         $db_mp1++;
         $save_query1 = ("UPDATE `$table` SET `point` = '$db_point1' , `mp` = '$db_mp1' , `win` = '$db_win1' , `drow` = '$db_drow1' 
@@ -239,7 +239,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team1_id']) &&  isset($
         $db_ga2 = $db_ga2 + $gt2;
         $db_gd2 = $db_gf2 - $db_ga2;
 
-        $db_drow2++; 
+        $db_drow2++;
+        $db_point2++; 
 
         $db_mp2++;
         $save_query2 = ("UPDATE `$table` SET `point` = '$db_point2' , `mp` = '$db_mp2' , `win` = '$db_win2' , `drow` = '$db_drow2' 
@@ -306,7 +307,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team1_id']) &&  isset($
                                 <option value="bartar15" >زیر 15 سال لیگ برتر</option>
                                 <option value="bartar14" >زیر 14 سال لیگ برتر</option>
                                 <option value="bartar13" >زیر 13 سال لیگ برتر</option>
-                                <option value="d2z17" >test</option>
+                                <!-- <option value="d2z17" >test</option> -->
                             </select>
                             <br>
                             <div class="text-center mt-4">
