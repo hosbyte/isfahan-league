@@ -50,6 +50,16 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
 
         <!-- // ? card show -->
         <div class="row" style="text-align: center;">
+            <!-- // ? bartar  21 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 21 سال</h5>
+                        <p class="card-text">لیگ برتر</p>
+                        <a href="bartar21a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
             <!-- // ? bartar  19 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
