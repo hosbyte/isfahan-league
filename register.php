@@ -284,6 +284,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team1_id']) &&  isset($
                                 <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
                             </li>
                             <li class="nav-item">
+                            <a class="nav-link" href="resultedit.php">اصلاح نتایج</a>
+                        </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="logout.php">خروج</a>
                             </li>
                         </ul>

@@ -58,6 +58,9 @@ $sql =mysqli_query($db , $query);
                             <a class="nav-link" href="register.php">ثبت نتایج</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="resultedit.php">اصلاح نتایج</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">خروج</a>
                         </li>
                     </ul>
@@ -134,7 +137,7 @@ $sql =mysqli_query($db , $query);
         <!-- // ? button for download -->
         <button id="downloadTable" class="btn btn-success" 
             style="display: block; margin: 20px auto; padding: 10px 20px; 
-            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1));">
+            background-color: black;">
             <i class="bi bi-download"></i> دانلود جدول به صورت عکس
         </button>
         
@@ -209,7 +212,8 @@ $sql =mysqli_query($db , $query);
                 padding: 15px 25px;
                 max-width: 600px;
                 width: 90%;
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1));
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1)); */
+                background-color: black;
                 color: white;
                 text-align: center;
                 border-radius: 12px;
@@ -250,12 +254,14 @@ $sql =mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1));
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1)); */
+                background-color: black;
                 color: white;
             }
             
             .gradient-table tbody tr {
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1));
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1)); */
+                background-color: black;
                 color: white;
                 transition: all 0.3s ease;
                 padding: 13px 10px;
@@ -264,7 +270,8 @@ $sql =mysqli_query($db , $query);
             
             .gradient-table tbody tr:nth-child(even) {
                 color: white;
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1));
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 238, 255, 1)); */
+                background-color: black;
             }
             
             .gradient-table th, 

@@ -58,6 +58,9 @@ $sql =mysqli_query($db , $query);
                             <a class="nav-link" href="register.php">ثبت نتایج</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="resultedit.php">اصلاح نتایج</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">خروج</a>
                         </li>
                     </ul>

@@ -58,6 +58,9 @@ $sql =mysqli_query($db , $query);
                             <a class="nav-link" href="register.php">ثبت نتایج</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="resultedit.php">اصلاح نتایج</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="logout.php">خروج</a>
                         </li>
                     </ul>
@@ -69,7 +72,7 @@ $sql =mysqli_query($db , $query);
         <div id="leagueTable">
             <!-- // ? box for show table name -->
             <div class="box-name">
-            <h4>لیگ برتر زیر ١٨ سال</h4>
+                <h4>لیگ برتر زیر ١٨ سال</h4>
             </div>
 
             <!-- // ? table -->
