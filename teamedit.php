@@ -69,7 +69,6 @@ if(isset($_POST['name']))
 // ? show name team for edit or delete
 $table_query = null;
 $table_sql = null; 
- 
 // ? query
 if(isset($_SESSION['tableselect']))
 {
@@ -77,6 +76,7 @@ if(isset($_SESSION['tableselect']))
     $table_query = ("SELECT `id` , `name` FROM `$table` ORDER BY `point` DESC , `id` DESC");
     $table_sql =mysqli_query($db , $table_query);
 }
+
 // ? delete one team
 $id = null;
 $delete_query = null;
@@ -113,6 +113,7 @@ if(isset($_GET['edit']))
         }
     }
 }
+
 // ? update teams name
 if (isset($_POST['update']))
 {
@@ -223,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
         <!-- // ? navbar -->
         <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #92fe9d 0% , #00c9ff 100%);">
             <div class="container-fluid">
-                <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">افزودن تیم</a>
+                <a class="navbar-brand" style="color:rgb(255, 255, 255);" href="#">مدیریت تیم‌ها</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -315,11 +316,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                                                 $name = $show['name'];
                                                 echo "
                                                     <tr>
-                                                    <th scope=\"row\">$num</th>
-                                                    <td>$name</td>
-                                                    <td> 
-                                                    <a href=\"?edit=$id\" type=\"button\" class=\"btn btn-warning\"> <i class=\"bi bi-pencil-square\"></i> تغییر نام</a> 
-                                                    <a href=\"?del=$id\" type=\"button\" class=\"btn btn-danger\"> <i class=\"bi bi-trash-fill\"></i> حذف تیم</a> </td>
+                                                        <th scope=\"row\">$num</th>
+                                                        <td>$name</td>
+                                                        <td> 
+                                                            <a href=\"?edit=$id\" type=\"button\" class=\"btn btn-warning\"> <i class=\"bi bi-pencil-square\"></i> تغییر نام</a> 
+                                                            <a href=\"?del=$id\" type=\"button\" class=\"btn btn-danger\"> <i class=\"bi bi-trash-fill\"></i> حذف تیم</a> 
+                                                        </td>
                                                     </tr>
                                                 ";
                                             }

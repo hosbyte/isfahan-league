@@ -147,3 +147,49 @@ $(document).ready(function() {
         }
     });
 });
+
+// ! resultedit page
+// * table select
+$(document).ready(function () {
+    $('#resultedit').on('submit' , function(e) {
+        e.preventDefault();
+        const table = $('#table').val();
+
+        if(!table){
+            alert("لطفاً تمام فیلدها را پر کنید.");
+            return;
+        }
+
+        $.ajax({
+            url : 'resultedit.php',
+            method : 'POST',
+            data :{
+                table : $('#table').val(),
+            },
+            success : function(show_t){
+                show_t = show_t.trim();
+                console.log(show_t);
+                if(show_t ==='1'){ 
+                    window.location.href = 'resultedit.php';
+                    console.log("yes");
+                  }
+                  else{
+                    console.log(show_t);
+                    alert ("جدول انتخاب نشد");
+                  }
+            },
+            error : function(){
+                alert ("اتصال انجام نشد");
+            },
+        });
+    });
+});
+
+// * modal show jquery 
+$(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has('edit')) {
+        const myModal = new bootstrap.Modal(document.getElementById('resultmodal'));
+        myModal.show();
+    }
+});

@@ -52,7 +52,7 @@ $sql =mysqli_query($db , $query);
                             <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
+                            <a class="nav-link" href="teamedit.php">مدیریت تیم‌ها</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.php">ثبت نتایج</a>

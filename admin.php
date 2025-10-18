@@ -35,7 +35,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="teamedit.php">مدیریت تیم ها</a>
+                            <a class="nav-link" href="teamedit.php">مدیریت تیم‌ها</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="register.php">ثبت نتایج</a>
