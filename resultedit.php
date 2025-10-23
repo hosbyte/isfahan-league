@@ -23,7 +23,7 @@ if(isset($_POST['table']) && !empty($_POST['table']))
   $table = $_POST['table'];
 
   // اعتبارسنجی 
-  $allowed_table = ['bartar13','bartar14','bartar15','bartar17','bartar18','bartar19','bartar21'];
+  $allowed_table = ['bartar13','bartar14','bartar15','bartar17','bartar18','bartar19','bartar21','daste1b'];
   if(!in_array($table , $allowed_table))
   {
     // error (databass incorrect)
@@ -251,6 +251,7 @@ if(isset($_POST['update']))
               <option value="bartar15" >زیر 15 سال لیگ برتر</option>
               <option value="bartar14" >زیر 14 سال لیگ برتر</option>
               <option value="bartar13" >زیر 13 سال لیگ برتر</option>
+              <option value="daste1b" >لیگ دسته یک بزرگسال</option>
             </select>
             <br>
             <div class="text-center mt-4">
