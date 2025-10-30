@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../../db.php';
 session_start();
 
 // ? database conecttion
@@ -14,10 +14,10 @@ $sql = mysqli_query($db , $query);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
         <link href="https://hosbyte.ir/files/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
         <link rel="stylesheet" href="https://isfahanleague.ir/files/icons-1.11.0/font/bootstrap-icons.min.css">
-        <link href="style.css" rel="stylesheet">
+        <link href="../../style.css" rel="stylesheet">
         <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
         <title>isfahan league</title>
@@ -33,10 +33,10 @@ $sql = mysqli_query($db , $query);
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">خانه</a>
+                            <a class="nav-link" href="../../index.php">خانه</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">ورود</a>
+                            <a class="nav-link" href="../../login.php">ورود</a>
                         </li>
                     </ul>
                 </div>
@@ -45,7 +45,7 @@ $sql = mysqli_query($db , $query);
         
         <!-- // ? box for show league name -->
         <div class="box-name">
-        <h4>لیگ برتر زیر ۱٩ سال</h4>
+            <h4>لیگ برتر زیر ۱٩ سال</h4>
         </div>
 
         <!-- // ? table -->
@@ -105,6 +105,9 @@ $sql = mysqli_query($db , $query);
                 </div>
             </div>
         </div>
+
+        <!-- //? empty div -->
+        <div style="height: 200px"></div>
 
         <!-- // ?footer -->
         <footer class="footer">

@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../../db.php';
 session_start();
 
 // ? admin check
@@ -20,12 +20,11 @@ $sql =mysqli_query($db , $query);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
         <link href="https://hosbyte.ir/files/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
         <link rel="stylesheet" href="https://isfahanleague.ir/files/icons-1.11.0/font/bootstrap-icons.min.css">
-        <link href="style.css" rel="stylesheet">
+        <link href="../../style.css" rel="stylesheet">
         <!-- اضافه کردن فونت فارسی -->
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"> -->
         <style>
             body {
                 font-family: Vazirmatn, sans-serif;
@@ -34,7 +33,7 @@ $sql =mysqli_query($db , $query);
         <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script src="jquery.js"></script>
+        <script src="../../jquery.js"></script>
         <title>isfahan league</title>
     </head>
     <body class="body">
@@ -49,18 +48,18 @@ $sql =mysqli_query($db , $query);
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="admin.php">خانه</a>
+                            <a class="nav-link active" aria-current="page" href="../../admin.php">خانه</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="teamedit.php">مدیریت تیم‌ها</a>
+                            <a class="nav-link" href="../../teamedit.php">مدیریت تیم‌ها</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="register.php">ثبت نتایج</a>
+                            <a class="nav-link" href="../../register.php">ثبت نتایج</a>
                         </li><li class="nav-item">
-                            <a class="nav-link" href="resultedit.php">اصلاح نتایج</a>
+                            <a class="nav-link" href="../../resultedit.php">اصلاح نتایج</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">خروج</a>
+                            <a class="nav-link" href="../../logout.php">خروج</a>
                         </li>
                     </ul>
                 </div>

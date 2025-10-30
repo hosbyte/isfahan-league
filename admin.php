@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 include 'db.php';
 session_start();
 
@@ -69,7 +72,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 21 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar/admin/bartar21a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar21a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
