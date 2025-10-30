@@ -50,7 +50,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 21 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar21.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar21.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 19 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar19.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar19.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 18 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar18.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar18.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 17 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar17.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar17.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 15 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar15.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar15.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 14 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar14.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar14.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 13 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar13.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/users/bartar13.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">بزرگسال</h5>
                         <p class="card-text">لیگ دسته یک</p>
-                        <a href="daste1b.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="daste1/users/daste1b.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>

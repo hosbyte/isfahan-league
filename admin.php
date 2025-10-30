@@ -59,7 +59,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">بزرگسال</h5>
                         <p class="card-text">لیگ دسته یک</p>
-                        <a href="daste1ba.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="daste1/admin/daste1ba.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 21 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar21a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar21a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 19 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar19a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar19a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 18 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar18a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar18a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 17 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar17a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar17a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -109,7 +109,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 15 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar15a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar15a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -119,7 +119,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 14 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar14a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar14a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -129,7 +129,7 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     <div class="cart-back cart card-body">
                         <h5 class="card-title">زیر 13 سال</h5>
                         <p class="card-text">لیگ برتر</p>
-                        <a href="bartar13a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                        <a href="bartar/admin/bartar13a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
