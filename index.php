@@ -124,6 +124,46 @@
                     </div>
                 </div>
             </div>
+             <!-- // ? daste 1  17 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 17 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/users/daste1z17.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+             <!-- // ? daste 1  15 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 15 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/users/daste1z15.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+             <!-- // ? daste 1  14 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 14 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/users/daste1z14.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+             <!-- // ? daste 1  13 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 13 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/users/daste1z13.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     
         <!-- // ?footer -->

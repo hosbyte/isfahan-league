@@ -8,7 +8,7 @@ session_start();
 // ? admin check
 if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['username'] !== 'majid')
 {
-    header('Location: login.php');
+    header('Location: ../../login.php');
     exit();
 }
 
@@ -74,7 +74,7 @@ $sql =mysqli_query($db , $query);
         <div id="leagueTable">
             <!-- // ? box for show table name -->
             <div class="box-name">
-            <h4>لیگ دسته یک بزرگسال</h4>
+                <h4>لیگ دسته یک بزرگسال</h4>
             </div>
 
             <!-- // ? table -->
@@ -82,7 +82,7 @@ $sql =mysqli_query($db , $query);
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 18px;font-weight: bold;">
+                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 20px; font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
                                         <th scope="col">رتبه</th>
@@ -139,7 +139,7 @@ $sql =mysqli_query($db , $query);
         <!-- // ? button for download -->
         <button id="downloadTable" class="btn btn-success" 
             style="display: block; margin: 20px auto; padding: 10px 20px; 
-            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));">
+            background-color : rgba(6, 181, 235, 0.7); color : black">
             <i class="bi bi-download"></i> دانلود جدول به صورت عکس
         </button>
         
@@ -214,8 +214,9 @@ $sql =mysqli_query($db , $query);
                 padding: 15px 25px;
                 max-width: 600px;
                 width: 90%;
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
-                color: white;
+                background-color: rgba(6, 181, 235, 0.7) ;
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: black;
                 text-align: center;
                 border-radius: 12px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -255,21 +256,24 @@ $sql =mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
-                color: white;
+                background-color: rgba(6, 181, 235, 0.7) ;
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: black;
             }
             
             .gradient-table tbody tr {
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
-                color: white;
+                background-color: rgba(6, 181, 235, 0.7) ;
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: black;
                 transition: all 0.3s ease;
                 padding: 13px 10px;
                 line-height: 3;
             }
             
             .gradient-table tbody tr:nth-child(even) {
-                color: white;
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: black;
+                background-color: rgba(6, 181, 235, 0.7) ;
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
             }
             
             .gradient-table th, 

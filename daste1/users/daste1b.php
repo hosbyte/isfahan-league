@@ -14,10 +14,10 @@ $sql = mysqli_query($db , $query);
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="img/favicon.png">
+        <link rel="icon" type="image/png" href="../../img/favicon.png">
         <link href="https://hosbyte.ir/files/bootstrap-5.3.7-dist/css/bootstrap.min.css" rel="stylesheet">    
         <link rel="stylesheet" href="https://isfahanleague.ir/files/icons-1.11.0/font/bootstrap-icons.min.css">
-        <link href="style.css" rel="stylesheet">
+        <link href="../../style.css" rel="stylesheet">
         <script src="https://hosbyte.ir/files/bootstrap-5.3.7-dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://hosbyte.ir/files/jquery-3.7.1.min.js"></script>
         <title>isfahan league</title>
@@ -45,7 +45,7 @@ $sql = mysqli_query($db , $query);
         
         <!-- // ? box for show league name -->
         <div class="box-name">
-        <h4>لیگ دسته یک بزرگسال</h4>
+            <h4>لیگ دسته یک بزرگسال</h4>
         </div>
 
         <!-- // ? table -->
@@ -106,6 +106,9 @@ $sql = mysqli_query($db , $query);
             </div>
         </div>
 
+        <!-- // empty div -->
+        <div style="height: 20px;"></div>
+
         <!-- // ?footer -->
         <footer class="footer">
             <p class="text-footer">Create By <a class="footer-link" href="https://hosbyte.ir">Hosbyte</a> Programmer</p>
@@ -133,8 +136,9 @@ $sql = mysqli_query($db , $query);
             padding: 15px 25px;
             max-width: 600px;
             width: 90%;
-            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
-            color: white;
+            background-color: rgba(6, 181, 235, 0.7);
+            /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+            color: black;
             text-align: center;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -177,21 +181,23 @@ $sql = mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
-                color: white;
+                background-color: rgba(6, 181, 235, 0.7);
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: black;
                 text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
             }
             
             .gradient-table tbody tr {
-                /* background: linear-gradient(to right, #d4af37, #121212); */
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
-                color: white;
+                background-color: rgba(6, 181, 235, 0.7);
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: black;
                 transition: all 0.3s ease;
             }
             
             .gradient-table tbody tr:nth-child(even) {
-                color: white;
-                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: black;
+                background-color: rgba(6, 181, 235, 0.7);
+                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
             }
             
             

@@ -106,7 +106,7 @@ $sql = mysqli_query($db , $query);
         </div>
 
         <!-- //? empty div -->
-        <div style="height: 200px"></div>
+        <div style="height: 20px"></div>
 
         <!-- // ?footer -->
         <footer class="footer">
