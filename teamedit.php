@@ -23,7 +23,8 @@ if(isset($_POST['table']) && !empty($_POST['table']))
     $table = $_POST['table'];
 
     // اعتبارسنجی نام جدول
-    $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19', 'bartar21','daste1b'];
+    $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19', 
+     'bartar21','daste1b' ,'daste1z17' ,'daste1z15' ,'daste1z14' ,'daste1z13'];
     if(!in_array($table, $allowed_tables)) 
     {
         die("0"); // جدول نامعتبر
@@ -265,6 +266,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_all']))
                                 <option value="bartar14" >زیر 14 سال لیگ برتر</option>
                                 <option value="bartar13" >زیر 13 سال لیگ برتر</option>
                                 <option value="daste1b" >لیگ دسته یک بزرگسال</option>
+                                <option value="daste1z17" >لیگ دسته یک زیر 17 سال</option>
+                                <option value="daste1z15" >لیگ دسته یک زیر 15 سال</option>
+                                <option value="daste1z14" >لیگ دسته یک زیر 14 سال</option>
+                                <option value="daste1z13" >لیگ دسته یک زیر 13 سال</option>
                         </select>
                         <br>
                         <div class="text-center mt-4">
