@@ -82,7 +82,7 @@ $sql =mysqli_query($db , $query);
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 20px; font-weight: bold;">
+                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 24px; font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
                                         <th scope="col">رتبه</th>
@@ -115,7 +115,7 @@ $sql =mysqli_query($db , $query);
                                                 echo "
                                                     <tr>
                                                         <th scope=\"row\">$num</th>
-                                                        <td>$name</td>
+                                                        <td style=\"font-size: 17px;\">$name</td>
                                                         <td>$point</td>
                                                         <td>$mp</td>
                                                         <td>$win</td>
@@ -139,7 +139,7 @@ $sql =mysqli_query($db , $query);
         <!-- // ? button for download -->
         <button id="downloadTable" class="btn btn-success" 
             style="display: block; margin: 20px auto; padding: 10px 20px; 
-            background-color : rgba(6, 181, 235, 0.7); color : black">
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); color : white">
             <i class="bi bi-download"></i> دانلود جدول به صورت عکس
         </button>
         
@@ -154,35 +154,44 @@ $sql =mysqli_query($db , $query);
         <script>
             $(document).ready(function(){
                 $("#downloadTable").click(function(){
-                    // ایجاد یک کپی از جدول برای پردازش بهتر
-                    var tableElement = document.getElementById("leagueTable");
-                    
-                    // پیکربندی html2canvas برای پردازش بهتر متن فارسی
-                    var options = {
-                        scale: 2, // افزایش کیفیت
-                        logging: false,
+                    const tableElement = document.getElementById("leagueTable");
+
+                    // 👇 عرض واقعی جدول در حالت دسکتاپ (برای موبایل هم با بزرگنمایی حفظ میشه)
+                    const originalWidth = tableElement.offsetWidth;
+
+                    // مقیاس بالا برای افزایش کیفیت تصویر (تأثیرگذار روی وضوح)
+                    const scale = 3;
+
+                    // تنظیمات html2canvas
+                    const options = {
+                        scale: scale,
                         useCORS: true,
                         allowTaint: true,
-                        backgroundColor: null,
+                        backgroundColor: "#000000ff",
+                        windowWidth: 1495, // 👈 این مقدار باعث میشه html2canvas جدول رو با عرض دسکتاپ رندر کنه
                         onclone: function(clonedDoc) {
-                            // اطمینان از اعمال استایل‌ها روی المنت کپی شده
-                            var clonedTable = clonedDoc.getElementById("leagueTable");
+                            const clonedTable = clonedDoc.getElementById("leagueTable");
                             if (clonedTable) {
                                 clonedTable.style.fontFamily = "Vazirmatn, sans-serif";
                                 clonedTable.style.direction = "rtl";
+                                clonedTable.style.fontSize = "18px";
+                                clonedTable.style.whiteSpace = "nowrap"; // 👈 جلوگیری از شکستن متن در دو خط
+                                clonedTable.style.overflow = "hidden";
                             }
                         }
                     };
-                    
-                    html2canvas(tableElement, options).then(function(canvas) {
-                        var link = document.createElement("a");
-                        link.download = "league_table.png";
-                        link.href = canvas.toDataURL("image/png");
-                        link.click();
-                    }).catch(function(error) {
-                        console.error("Error generating image:", error);
-                        alert("خطا در ایجاد تصویر. لطفاً دوباره تلاش کنید.");
-                    });
+
+                    html2canvas(tableElement, options)
+                        .then(function(canvas) {
+                            const link = document.createElement("a");
+                            link.download = "league_table.png";
+                            link.href = canvas.toDataURL("image/png");
+                            link.click();
+                        })
+                        .catch(function(error) {
+                            console.error("Error generating image:", error);
+                            alert("خطا در ایجاد تصویر. لطفاً دوباره تلاش کنید.");
+                        });
                 });
             });
         </script>
@@ -214,9 +223,9 @@ $sql =mysqli_query($db , $query);
                 padding: 15px 25px;
                 max-width: 600px;
                 width: 90%;
-                background-color: rgba(6, 181, 235, 0.7) ;
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: black;
+                /* background-color: rgba(6, 181, 235, 0.7) ; */
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: white;
                 text-align: center;
                 border-radius: 12px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -256,24 +265,24 @@ $sql =mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background-color: rgba(6, 181, 235, 0.7) ;
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: black;
+                /* background-color: rgba(6, 181, 235, 0.7) ; */
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: white;
             }
             
             .gradient-table tbody tr {
-                background-color: rgba(6, 181, 235, 0.7) ;
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: black;
+                /* background-color: rgba(6, 181, 235, 0.7) ; */
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: white;
                 transition: all 0.3s ease;
                 padding: 13px 10px;
                 line-height: 3;
             }
             
             .gradient-table tbody tr:nth-child(even) {
-                color: black;
-                background-color: rgba(6, 181, 235, 0.7) ;
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: white;
+                /* background-color: rgba(6, 181, 235, 0.7) ; */
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
             }
             
             .gradient-table th, 

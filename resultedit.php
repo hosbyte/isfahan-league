@@ -23,12 +23,10 @@ if(isset($_POST['table']) && !empty($_POST['table']))
   $table = $_POST['table'];
 
   // اعتبارسنجی 
-  $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19', 
-    'bartar21','daste1b' ,'daste1z17' ,'daste1z15' ,'daste1z14' ,'daste1z13'];
-  if(!in_array($table , $allowed_table))
+  $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19', 'bartar21', 'daste1b', 'daste1z17', 'daste1z15', 'daste1z14', 'daste1z13'];
+  if(!in_array($table, $allowed_tables)) 
   {
-    // error (databass incorrect)
-    die(0);
+    die("0"); // جدول نامعتبر
   }
 
   $sql_query = ("SELECT * FROM `$table`");
@@ -46,7 +44,7 @@ if(isset($_POST['table']) && !empty($_POST['table']))
   }
   echo"1";
   exit();
-  return;
+  //return;
 }
 
 // ? show name team for edit or delete

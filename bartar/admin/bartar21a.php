@@ -71,7 +71,7 @@ $sql =mysqli_query($db , $query);
         <div id="leagueTable">
             <!-- // ? box for show table name -->
             <div class="box-name">
-            <h4>لیگ برتر زیر ٢١ سال</h4>
+                <h4>لیگ برتر زیر ٢١ سال</h4>
             </div>
 
             <!-- // ? table -->
@@ -79,7 +79,7 @@ $sql =mysqli_query($db , $query);
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 20px; font-weight: bold;">
+                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 24px; font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
                                         <th scope="col">رتبه</th>
@@ -112,7 +112,7 @@ $sql =mysqli_query($db , $query);
                                                 echo "
                                                     <tr>
                                                         <th scope=\"row\">$num</th>
-                                                        <td>$name</td>
+                                                        <td style=\"font-size: 18px;\">$name</td>
                                                         <td>$point</td>
                                                         <td>$mp</td>
                                                         <td>$win</td>
