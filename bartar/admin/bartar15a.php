@@ -112,7 +112,7 @@ $sql =mysqli_query($db , $query);
                                                 echo "
                                                     <tr>
                                                         <th scope=\"row\">$num</th>
-                                                        <td style=\"font-size: 18px;\">$name</td>
+                                                        <td style=\"font-size: 16px;\">$name</td>
                                                         <td>$point</td>
                                                         <td>$mp</td>
                                                         <td>$win</td>

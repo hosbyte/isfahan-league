@@ -74,27 +74,27 @@ $sql =mysqli_query($db , $query);
         <div id="leagueTable">
             <!-- // ? box for show table name -->
             <div class="box-name">
-                <h4>لیگ دسته یک زیر ١٥ سال</h4>
+                <h4>لیگ دسته یک زیر ١٧ سال</h4>
             </div>
 
             <!-- // ? table -->
-            <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
+            <div style="margin-top: 50px; text-align: center;" class="img container-fluid py-4 table-responsive-sm">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
                             <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 24px; font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
-                                        <th scope="col">رتبه</th>
-                                        <th scope="col">نام تیم</th>
-                                        <th scope="col">امتیاز</th>
-                                        <th scope="col">بازی</th>
-                                        <th scope="col">برد</th>
-                                        <th scope="col">مساوی</th>
-                                        <th scope="col">باخت</th>
-                                        <th scope="col">گل زده</th>
-                                        <th scope="col">گل خورده</th>
-                                        <th scope="col">تفاضل گل</th>
+                                        <th scope="col" style="font-size: 20px;">رتبه</th>
+                                        <th scope="col" style="font-size: 20px; width: 430px;">نام تیم</th>
+                                        <th scope="col" style="font-size: 20px;">امتیاز</th>
+                                        <th scope="col" style="font-size: 20px;">بازی</th>
+                                        <th scope="col" style="font-size: 20px;">برد</th>
+                                        <th scope="col" style="font-size: 20px;">مساوی</th>
+                                        <th scope="col" style="font-size: 20px;">باخت</th>
+                                        <th scope="col" style="font-size: 20px;">گل زده</th>
+                                        <th scope="col" style="font-size: 20px;">گل خورده</th>
+                                        <th scope="col" style="font-size: 20px;">تفاضل گل</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center;">
@@ -115,7 +115,7 @@ $sql =mysqli_query($db , $query);
                                                 echo "
                                                     <tr>
                                                         <th scope=\"row\">$num</th>
-                                                        <td style=\"font-size: 17px;\">$name</td>
+                                                        <td style=\"font-size: 16px; width: 430px;\">$name</td>
                                                         <td>$point</td>
                                                         <td>$mp</td>
                                                         <td>$win</td>
@@ -154,44 +154,27 @@ $sql =mysqli_query($db , $query);
         <script>
             $(document).ready(function(){
                 $("#downloadTable").click(function(){
-                    const tableElement = document.getElementById("leagueTable");
+                    const capture = document.getElementById("leagueTable");
 
-                    // 👇 عرض واقعی جدول در حالت دسکتاپ (برای موبایل هم با بزرگنمایی حفظ میشه)
-                    const originalWidth = tableElement.offsetWidth;
-
-                    // مقیاس بالا برای افزایش کیفیت تصویر (تأثیرگذار روی وضوح)
-                    const scale = 3;
-
-                    // تنظیمات html2canvas
-                    const options = {
-                        scale: scale,
+                    html2canvas(capture, {
+                        scale: 2, // کیفیت خروجی (۲ = کیفیت بالا، بدون تاری)
+                        backgroundColor: "#000000", // رنگ پس‌زمینه سفید
                         useCORS: true,
-                        allowTaint: true,
-                        backgroundColor: "#000000ff",
-                        windowWidth: 1495, // 👈 این مقدار باعث میشه html2canvas جدول رو با عرض دسکتاپ رندر کنه
                         onclone: function(clonedDoc) {
-                            const clonedTable = clonedDoc.getElementById("leagueTable");
-                            if (clonedTable) {
-                                clonedTable.style.fontFamily = "Vazirmatn, sans-serif";
-                                clonedTable.style.direction = "rtl";
-                                clonedTable.style.fontSize = "18px";
-                                clonedTable.style.whiteSpace = "nowrap"; // 👈 جلوگیری از شکستن متن در دو خط
-                                clonedTable.style.overflow = "hidden";
-                            }
+                            const clonedCapture = clonedDoc.getElementById("leagueTable");
+                            clonedCapture.style.margin = "0";
+                            clonedCapture.style.padding = "0";
+                            clonedCapture.style.display = "inline-block";
+                            clonedCapture.style.textAlign = "center";
                         }
-                    };
-
-                    html2canvas(tableElement, options)
-                        .then(function(canvas) {
-                            const link = document.createElement("a");
-                            link.download = "league_table.png";
-                            link.href = canvas.toDataURL("image/png");
-                            link.click();
-                        })
-                        .catch(function(error) {
-                            console.error("Error generating image:", error);
-                            alert("خطا در ایجاد تصویر. لطفاً دوباره تلاش کنید.");
-                        });
+                    }).then(canvas => {
+                        const link = document.createElement("a");
+                        link.download = "league_table.png";
+                        link.href = canvas.toDataURL("image/png");
+                        link.click();
+                    }).catch(err => {
+                        console.error("Error generating image:", err);
+                    });
                 });
             });
         </script>

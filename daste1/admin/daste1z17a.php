@@ -71,30 +71,30 @@ $sql =mysqli_query($db , $query);
         </nav>
         
         <!-- // ? for photo -->
-        <div id="leagueTable" style="width: cover;">
+        <div id="leagueTable">
             <!-- // ? box for show table name -->
             <div class="box-name">
                 <h4>لیگ دسته یک زیر ١٧ سال</h4>
             </div>
 
             <!-- // ? table -->
-            <div class="img" style="margin-top: 50px; text-align: center;" class="container-fluid py-4 table-responsive-sm">
+            <div style="margin-top: 50px; text-align: center;" class="img container-fluid py-4 table-responsive-sm">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-10 col-xl-8">
                         <div class="table-responsive rounded-3 shadow-sm" style="margin-bottom: 80px;">
-                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 28px; font-weight: bold;">
+                            <table class="gradient-table-wrapper gradient-table table-size" style="color : black; font-size: 24px; font-weight: bold;">
                                 <thead style="text-align: center;">
                                     <tr>
-                                        <th scope="col" style="font-size: 24px;">رتبه</th>
-                                        <th scope="col" style="font-size: 24px; width: 720px;">نام تیم</th>
-                                        <th scope="col" style="font-size: 24px;">امتیاز</th>
-                                        <th scope="col" style="font-size: 24px;">بازی</th>
-                                        <th scope="col" style="font-size: 24px;">برد</th>
-                                        <th scope="col" style="font-size: 24px;">مساوی</th>
-                                        <th scope="col" style="font-size: 24px;">باخت</th>
-                                        <th scope="col" style="font-size: 24px;">گل زده</th>
-                                        <th scope="col" style="font-size: 24px;">گل خورده</th>
-                                        <th scope="col" style="font-size: 24px;">تفاضل گل</th>
+                                        <th scope="col" style="font-size: 20px;">رتبه</th>
+                                        <th scope="col" style="font-size: 20px; width: 430px;">نام تیم</th>
+                                        <th scope="col" style="font-size: 20px;">امتیاز</th>
+                                        <th scope="col" style="font-size: 20px;">بازی</th>
+                                        <th scope="col" style="font-size: 20px;">برد</th>
+                                        <th scope="col" style="font-size: 20px;">مساوی</th>
+                                        <th scope="col" style="font-size: 20px;">باخت</th>
+                                        <th scope="col" style="font-size: 20px;">گل زده</th>
+                                        <th scope="col" style="font-size: 20px;">گل خورده</th>
+                                        <th scope="col" style="font-size: 20px;">تفاضل گل</th>
                                     </tr>
                                 </thead>
                                 <tbody style="text-align: center;">
@@ -115,7 +115,7 @@ $sql =mysqli_query($db , $query);
                                                 echo "
                                                     <tr>
                                                         <th scope=\"row\">$num</th>
-                                                        <td style=\"font-size: 16px; width: 720px;\">$name</td>
+                                                        <td style=\"font-size: 16px; width: 430px;\">$name</td>
                                                         <td>$point</td>
                                                         <td>$mp</td>
                                                         <td>$win</td>
@@ -154,44 +154,27 @@ $sql =mysqli_query($db , $query);
         <script>
             $(document).ready(function(){
                 $("#downloadTable").click(function(){
-                    const tableElement = document.getElementById("leagueTable");
+                    const capture = document.getElementById("leagueTable");
 
-                    // 👇 عرض واقعی جدول در حالت دسکتاپ (برای موبایل هم با بزرگنمایی حفظ میشه)
-                    const originalWidth = tableElement.offsetWidth;
-
-                    // مقیاس بالا برای افزایش کیفیت تصویر (تأثیرگذار روی وضوح)
-                    const scale = 3;
-
-                    // تنظیمات html2canvas
-                    const options = {
-                        scale: scale,
+                    html2canvas(capture, {
+                        scale: 2, // کیفیت خروجی (۲ = کیفیت بالا، بدون تاری)
+                        backgroundColor: "#000000", // رنگ پس‌زمینه سفید
                         useCORS: true,
-                        allowTaint: true,
-                        backgroundColor: "#000000ff",
-                        windowWidth: 1495, // 👈 این مقدار باعث میشه html2canvas جدول رو با عرض دسکتاپ رندر کنه
                         onclone: function(clonedDoc) {
-                            const clonedTable = clonedDoc.getElementById("leagueTable");
-                            if (clonedTable) {
-                                clonedTable.style.fontFamily = "Vazirmatn, sans-serif";
-                                clonedTable.style.direction = "rtl";
-                                clonedTable.style.fontSize = "18px";
-                                clonedTable.style.whiteSpace = "nowrap"; // 👈 جلوگیری از شکستن متن در دو خط
-                                clonedTable.style.overflow = "hidden";
-                            }
+                            const clonedCapture = clonedDoc.getElementById("leagueTable");
+                            clonedCapture.style.margin = "0";
+                            clonedCapture.style.padding = "0";
+                            clonedCapture.style.display = "inline-block";
+                            clonedCapture.style.textAlign = "center";
                         }
-                    };
-
-                    html2canvas(tableElement, options)
-                        .then(function(canvas) {
-                            const link = document.createElement("a");
-                            link.download = "league_table.png";
-                            link.href = canvas.toDataURL("image/png");
-                            link.click();
-                        })
-                        .catch(function(error) {
-                            console.error("Error generating image:", error);
-                            alert("خطا در ایجاد تصویر. لطفاً دوباره تلاش کنید.");
-                        });
+                    }).then(canvas => {
+                        const link = document.createElement("a");
+                        link.download = "league_table.png";
+                        link.href = canvas.toDataURL("image/png");
+                        link.click();
+                    }).catch(err => {
+                        console.error("Error generating image:", err);
+                    });
                 });
             });
         </script>
@@ -259,9 +242,9 @@ $sql =mysqli_query($db , $query);
                 padding: 15px 25px;
                 max-width: 600px;
                 width: 90%;
-                background-color: rgba(0, 0, 255, 0.7);
+                background-color: rgba(201, 235, 6, 0.7);
                 /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: white;
+                color: black;
                 text-align: center;
                 border-radius: 12px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -301,23 +284,23 @@ $sql =mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background-color: rgba(0, 0, 255, 0.7);
+                background-color: rgba(201, 235, 6, 0.7);
                 /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: white;
+                color: black;
             }
             
             .gradient-table tbody tr {
-                background-color: rgba(0, 0, 255, 0.7);
+                background-color: rgba(201, 235, 6, 0.7);
                 /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: white;
+                color: black;
                 transition: all 0.3s ease;
                 padding: 13px 10px;
                 line-height: 3;
             }
             
             .gradient-table tbody tr:nth-child(even) {
-                color: white;
-                background-color: rgba(0, 0, 255, 0.7);
+                color: black;
+                background-color: rgba(201, 235, 6, 0.7);
                 /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
             }
             
