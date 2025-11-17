@@ -136,6 +136,26 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin' || $_SESSION['
                     </div>
                 </div>
             </div>
+             <!-- // ? daste 1 19  -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 19 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/admin/daste1z19a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+             <!-- // ? daste 1 18  -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 18 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/admin/daste1z18a.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
             <!-- // ? daste 1 17  -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">

@@ -3,7 +3,7 @@ include('../../db.php');
 session_start();
 
 // ? database conecttion
-$query = ("SELECT * FROM `daste1z15` ORDER BY point DESC , gd DESC, name ASC ");
+$query = ("SELECT * FROM `daste1z19` ORDER BY point DESC , gd DESC, name ASC ");
 $sql = mysqli_query($db , $query);
 
 
@@ -45,7 +45,7 @@ $sql = mysqli_query($db , $query);
         
         <!-- // ? box for show league name -->
         <div class="box-name">
-            <h4>لیگ دسته یک زیر ١٥ سال</h4>
+            <h4>لیگ دسته یک زیر ١٩ سال</h4>
         </div>
 
         <!-- // ? table -->
@@ -136,9 +136,8 @@ $sql = mysqli_query($db , $query);
             padding: 15px 25px;
             max-width: 600px;
             width: 90%;
-            background-color: rgba(201, 235, 6, 0.7);
-            /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-            color: black;
+            background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+            color: white;
             text-align: center;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -181,23 +180,20 @@ $sql = mysqli_query($db , $query);
             }
             
             .gradient-table thead tr {
-                background-color: rgba(201, 235, 6, 0.7);
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: black;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: white;
                 text-shadow: 1px 1px 2px rgba(255, 255, 255, 1);
             }
             
             .gradient-table tbody tr {
-                background-color: rgba(201, 235, 6, 0.7);
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
-                color: black;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
+                color: white;
                 transition: all 0.3s ease;
             }
             
             .gradient-table tbody tr:nth-child(even) {
-                color: black;
-                background-color: rgba(201, 235, 6, 0.7);
-                /* background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1)); */
+                color: white;
+                background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(6, 181, 235, 1));
             }
             
             

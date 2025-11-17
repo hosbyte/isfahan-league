@@ -124,7 +124,27 @@
                     </div>
                 </div>
             </div>
-             <!-- // ? daste 1  17 -->
+             <!-- // ? daste 1  19 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 19 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/users/daste1z19.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- // ? daste 1  18 -->
+            <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
+                <div class="cart-back card">
+                    <div class="cart-back cart card-body">
+                        <h5 class="card-title">زیر 18 سال</h5>
+                        <p class="card-text">لیگ دسته یک</p>
+                        <a href="daste1/users/daste1z18.php" class="btn btn-primary">مشاهده جدول <i class="bi bi-eye"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- // ? daste 1  17 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
                     <div class="cart-back cart card-body">
@@ -134,7 +154,7 @@
                     </div>
                 </div>
             </div>
-             <!-- // ? daste 1  15 -->
+            <!-- // ? daste 1  15 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
                     <div class="cart-back cart card-body">
@@ -144,7 +164,7 @@
                     </div>
                 </div>
             </div>
-             <!-- // ? daste 1  14 -->
+            <!-- // ? daste 1  14 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
                     <div class="cart-back cart card-body">
@@ -154,7 +174,7 @@
                     </div>
                 </div>
             </div>
-             <!-- // ? daste 1  13 -->
+            <!-- // ? daste 1  13 -->
             <div class="cart-back1 col-sm-6 mb-3 mb-sm-0" style="padding-top: 20px;">
                 <div class="cart-back card">
                     <div class="cart-back cart card-body">

@@ -33,7 +33,7 @@ $sql = mysqli_query($db , $query);
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">خانه</a>
+                            <a class="nav-link" href="../../index.php">خانه</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="login.php">ورود</a>

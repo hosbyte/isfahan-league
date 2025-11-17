@@ -74,7 +74,7 @@ $sql =mysqli_query($db , $query);
         <div id="leagueTable">
             <!-- // ? box for show table name -->
             <div class="box-name">
-                <h4>لیگ دسته یک زیر ١٧ سال</h4>
+                <h4>لیگ دسته یک زیر ١٤ سال</h4>
             </div>
 
             <!-- // ? table -->
