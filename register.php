@@ -52,7 +52,7 @@ if(isset($_POST['table']) && !empty($_POST['table'])) {
     
     // اعتبارسنجی نام جدول
     $allowed_tables = ['bartar13', 'bartar14', 'bartar15', 'bartar17', 'bartar18', 'bartar19', 
-     'bartar21','daste1b' ,'daste1z17' ,'daste1z15' ,'daste1z14' ,'daste1z13'];
+     'bartar21','daste1b' ,'daste1z17' ,'daste1z15' ,'daste1z14' ,'daste1z13' ,'osve'];
     if(!in_array($table, $allowed_tables)) {
         die("0"); // جدول نامعتبر
     }
@@ -317,6 +317,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['team1_id']) &&  isset($
                                 <option value="daste1z15" >لیگ دسته یک زیر 15 سال</option>
                                 <option value="daste1z14" >لیگ دسته یک زیر 14 سال</option>
                                 <option value="daste1z13" >لیگ دسته یک زیر 13 سال</option>
+                                <option value="osve" >لیگ اسوه</option>
                                 <!-- <option value="d2z17" >test</option> -->
                             </select>
                             <br>
